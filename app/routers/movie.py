@@ -1,10 +1,11 @@
+#API endpoints
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database import SessionLocal
-from app.schemas.movie import MovieCreate, MovieResponse
+from app.schemas.movie import MovieCreate, MovieResponse #pydantic
 from app.services import movie_service
-
+#adds "/movies" in endpoints
 router = APIRouter(prefix="/movies", tags=["Movies"])
 
 
@@ -19,7 +20,7 @@ def get_db():
 
 @router.post("/", response_model=MovieResponse)
 def create_movie(movie: MovieCreate, db: Session = Depends(get_db)):
-    return movie_service.create_movie(db, movie)
+    return movie_service.create_movie(db, movie) #validated Pydantic object
 
 
 @router.get("/", response_model=list[MovieResponse])
