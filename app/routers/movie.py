@@ -6,7 +6,12 @@ from sqlalchemy.orm import Session
 from app.database import SessionLocal
 from app.schemas.movie import MovieCreate, MovieResponse
 from app.services import movie_service
+from app.schemas.recommendation import (
+    RecommendationRequest,
+    RecommendationResponse,
+)
 
+from app.services.ai_service import recommend_movie
 router = APIRouter(prefix="/movies", tags=["Movies"])
 
 
@@ -70,3 +75,17 @@ def delete_movie(movie_id: int, db: Session = Depends(get_db)):
         )
 
     return {"message": "Movie deleted successfully"}
+@router.post(
+    "/recommend",
+    response_model=RecommendationResponse
+)
+def ai_recommend(movie: RecommendationRequest):
+    recommendation = recommend_movie(
+        movie.title,
+        movie.genre,
+        movie.rating,
+    )
+
+    return {
+        "recommendation": recommendation
+    }
