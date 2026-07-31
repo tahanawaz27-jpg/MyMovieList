@@ -1,11 +1,16 @@
 import os
-
 from google import genai
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
+
+client = genai.Client(api_key=api_key) if api_key else None
 
 
 def recommend_movie(title: str, genre: str, rating: float):
+
+    if client is None:
+        return "AI recommendation unavailable"
+
     prompt = f"""
     The user enjoyed this movie:
 
@@ -20,8 +25,8 @@ def recommend_movie(title: str, genre: str, rating: float):
     """
 
     response = client.models.generate_content(
-    model="gemini-3.6-flash",
-    contents=prompt
+        model="gemini-2.5-flash",
+        contents=prompt
     )
 
     return response.text

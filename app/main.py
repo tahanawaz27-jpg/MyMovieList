@@ -1,7 +1,9 @@
-#handles API requests
 from dotenv import load_dotenv
 
 load_dotenv()
+
+from fastapi import FastAPI
+from app.routers.movie import router
 from fastapi import FastAPI
 
 from app.database import Base, engine
