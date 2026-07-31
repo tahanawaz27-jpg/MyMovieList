@@ -1,11 +1,12 @@
-#API endpoints
-from fastapi import APIRouter, Depends, HTTPException
+# API endpoints
+
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database import SessionLocal
-from app.schemas.movie import MovieCreate, MovieResponse #pydantic
+from app.schemas.movie import MovieCreate, MovieResponse
 from app.services import movie_service
-#adds "/movies" in endpoints
+
 router = APIRouter(prefix="/movies", tags=["Movies"])
 
 
@@ -18,9 +19,13 @@ def get_db():
         db.close()
 
 
-@router.post("/", response_model=MovieResponse)
+@router.post(
+    "/",
+    response_model=MovieResponse,
+    status_code=status.HTTP_201_CREATED
+)
 def create_movie(movie: MovieCreate, db: Session = Depends(get_db)):
-    return movie_service.create_movie(db, movie) #validated Pydantic object
+    return movie_service.create_movie(db, movie)
 
 
 @router.get("/", response_model=list[MovieResponse])
@@ -32,8 +37,11 @@ def get_movies(db: Session = Depends(get_db)):
 def get_movie(movie_id: int, db: Session = Depends(get_db)):
     movie = movie_service.get_movie(db, movie_id)
 
-    if not movie:
-        raise HTTPException(status_code=404, detail="Movie not found")
+    if movie is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Movie not found"
+        )
 
     return movie
 
@@ -42,8 +50,11 @@ def get_movie(movie_id: int, db: Session = Depends(get_db)):
 def update_movie(movie_id: int, movie: MovieCreate, db: Session = Depends(get_db)):
     updated_movie = movie_service.update_movie(db, movie_id, movie)
 
-    if not updated_movie:
-        raise HTTPException(status_code=404, detail="Movie not found")
+    if updated_movie is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Movie not found"
+        )
 
     return updated_movie
 
@@ -52,7 +63,10 @@ def update_movie(movie_id: int, movie: MovieCreate, db: Session = Depends(get_db
 def delete_movie(movie_id: int, db: Session = Depends(get_db)):
     movie = movie_service.delete_movie(db, movie_id)
 
-    if not movie:
-        raise HTTPException(status_code=404, detail="Movie not found")
+    if movie is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Movie not found"
+        )
 
     return {"message": "Movie deleted successfully"}

@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+
 from app.models.movie import Movie
 from app.schemas.movie import MovieCreate
 
@@ -10,7 +11,7 @@ def create_movie(db: Session, movie: MovieCreate):
         genre=movie.genre,
         release_year=movie.release_year,
         rating=movie.rating,
-        watched=movie.watched
+        watched=movie.watched,
     )
 
     db.add(new_movie)
@@ -25,13 +26,14 @@ def get_movies(db: Session):
 
 
 def get_movie(db: Session, movie_id: int):
-    return db.query(Movie).filter(Movie.id == movie_id).first()
+    movie = db.query(Movie).filter(Movie.id == movie_id).first()
+    return movie
 
 
 def update_movie(db: Session, movie_id: int, movie: MovieCreate):
     existing_movie = db.query(Movie).filter(Movie.id == movie_id).first()
 
-    if not existing_movie:
+    if existing_movie is None:
         return None
 
     existing_movie.title = movie.title
@@ -50,7 +52,7 @@ def update_movie(db: Session, movie_id: int, movie: MovieCreate):
 def delete_movie(db: Session, movie_id: int):
     movie = db.query(Movie).filter(Movie.id == movie_id).first()
 
-    if not movie:
+    if movie is None:
         return None
 
     db.delete(movie)
