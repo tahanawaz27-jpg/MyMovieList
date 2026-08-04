@@ -1,6 +1,11 @@
 import os
 from groq import Groq
 
+print("========== GROQ DEBUG ==========")
+print("GROQ_API_KEY FOUND:", os.getenv("GROQ_API_KEY") is not None)
+print("GROQ_API_KEY VALUE:", os.getenv("GROQ_API_KEY"))
+print("================================")
+
 api_key = os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=api_key) if api_key else None
@@ -39,5 +44,5 @@ Don't use markdown.
         return response.choices[0].message.content
 
     except Exception as e:
-        print("Groq Error:", e)
-        return f"AI recommendation failed: {e}"
+        print("Groq Error:", str(e))
+        return f"AI recommendation failed: {str(e)}"
