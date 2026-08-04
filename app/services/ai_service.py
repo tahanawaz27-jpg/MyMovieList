@@ -1,11 +1,9 @@
 import os
-from google import genai
+from groq import Groq
 
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GROQ_API_KEY")
 
-print("API KEY FOUND:", api_key is not None)
-
-client = genai.Client(api_key=api_key) if api_key else None
+client = Groq(api_key=api_key) if api_key else None
 
 
 def recommend_movie(title: str, genre: str, rating: float):
@@ -27,13 +25,19 @@ Don't use markdown.
 """
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash-lite",
-            contents=prompt
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.7,
         )
 
-        return response.text if response.text else "No recommendation generated."
+        return response.choices[0].message.content
 
     except Exception as e:
-        print("Gemini Error:", e)
+        print("Groq Error:", e)
         return f"AI recommendation failed: {e}"
