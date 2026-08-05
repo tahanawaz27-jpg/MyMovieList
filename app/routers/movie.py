@@ -1,19 +1,22 @@
-from app.utils.logger import logger
 from fastapi import APIRouter, HTTPException, status
 
-from app.schemas.movie import MovieCreate, MovieResponse
-from app.services import movie_service
-from app.schemas.recommendation import (
-    RecommendationRequest,
-    RecommendationResponse,
+from app.schemas.movie import (
+    MovieCreate,
+    MovieUpdate,
+    MovieResponse,
 )
+from app.schemas.recommendation import RecommendationResponse
+from app.services import movie_service
 from app.services.ai_service import recommend_movie
+from app.utils.logger import logger
 
 router = APIRouter(
     prefix="/movies",
-    tags=["Movies"]
+    tags=["Movies"],
 )
 
+
+# ---------------- CREATE ---------------- #
 
 @router.post(
     "/",
@@ -21,137 +24,234 @@ router = APIRouter(
     status_code=status.HTTP_201_CREATED,
 )
 def create_movie(movie: MovieCreate):
+    try:
+        logger.info(
+            f"Creating movie: {movie.title}"
+        )
 
-    logger.info(f"Creating movie: {movie.title}")
+        created_movie = movie_service.create_movie(movie)
 
-    created_movie = movie_service.create_movie(movie)
+        logger.info(
+            f"Movie created successfully with id {created_movie.id}"
+        )
 
-    logger.info(
-        f"Movie created successfully with id: {created_movie.id}"
-    )
+        return created_movie
 
-    return created_movie
+    except HTTPException:
+        raise
 
+    except Exception as e:
+        logger.exception(
+            f"Unexpected error while creating movie: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while creating the movie.",
+        )
+
+
+# ---------------- GET ALL ---------------- #
 
 @router.get(
     "/",
-    response_model=list[MovieResponse]
+    response_model=list[MovieResponse],
 )
 def get_movies():
+    try:
+        logger.info(
+            "Fetching all movies"
+        )
 
-    logger.info("Fetching all movies")
+        movies = movie_service.get_movies()
 
-    movies = movie_service.get_movies()
+        logger.info(
+            f"Retrieved {len(movies)} movies"
+        )
 
-    logger.info(
-        f"Total movies found: {len(movies)}"
-    )
+        return movies
 
-    return movies
+    except HTTPException:
+        raise
 
+    except Exception as e:
+        logger.exception(
+            f"Unexpected error while fetching movies: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while fetching movies.",
+        )
+
+
+# ---------------- AI RECOMMEND ---------------- #
+# Must come BEFORE /{movie_id}
 
 @router.get(
-    "/{movie_id}",
-    response_model=MovieResponse
-)
-def get_movie(movie_id: int):
-
-    logger.info(
-        f"Fetching movie with id: {movie_id}"
-    )
-
-    movie = movie_service.get_movie(movie_id)
-
-    if movie is None:
-        logger.warning(
-            f"Movie with id {movie_id} not found"
-        )
-
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found",
-        )
-
-    return movie
-
-
-@router.put(
-    "/{movie_id}",
-    response_model=MovieResponse
-)
-def update_movie(
-    movie_id: int,
-    movie: MovieCreate,
-):
-
-    logger.info(
-        f"Updating movie id: {movie_id}"
-    )
-
-    updated_movie = movie_service.update_movie(
-        movie_id,
-        movie,
-    )
-
-    if updated_movie is None:
-        logger.warning(
-            f"Movie id {movie_id} not found for update"
-        )
-
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found",
-        )
-
-    return updated_movie
-
-
-@router.delete("/{movie_id}")
-def delete_movie(movie_id: int):
-
-    logger.info(
-        f"Deleting movie id: {movie_id}"
-    )
-
-    movie = movie_service.delete_movie(movie_id)
-
-    if movie is None:
-        logger.warning(
-            f"Movie id {movie_id} not found for deletion"
-        )
-
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found",
-        )
-
-    return {
-        "message": "Movie deleted successfully"
-    }
-
-
-@router.post(
     "/recommend",
     response_model=RecommendationResponse,
 )
-def ai_recommend(
-    movie: RecommendationRequest,
+def ai_recommend(title: str):
+    try:
+        logger.info(
+            f"AI recommendation requested for '{title}'"
+        )
+
+        recommendation = recommend_movie(title)
+
+        logger.info(
+            "Recommendation generated successfully"
+        )
+
+        return {
+            "recommendation": recommendation
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception as e:
+        logger.exception(
+            f"Recommendation error: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Unable to generate recommendation.",
+        )
+
+
+# ---------------- GET ONE ---------------- #
+
+@router.get(
+    "/{movie_id}",
+    response_model=MovieResponse,
+)
+def get_movie(movie_id: int):
+    try:
+        logger.info(
+            f"Fetching movie {movie_id}"
+        )
+
+        movie = movie_service.get_movie(movie_id)
+
+        if movie is None:
+            logger.warning(
+                f"Movie {movie_id} not found"
+            )
+
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Movie not found",
+            )
+
+        return movie
+
+    except HTTPException:
+        raise
+
+    except Exception as e:
+        logger.exception(
+            f"Unexpected error while fetching movie {movie_id}: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while fetching the movie.",
+        )
+
+
+# ---------------- PATCH ---------------- #
+
+@router.patch(
+    "/{movie_id}",
+    response_model=MovieResponse,
+)
+def update_movie(
+    movie_id: int,
+    movie: MovieUpdate,
 ):
+    try:
+        logger.info(
+            f"Updating movie {movie_id}"
+        )
 
-    logger.info(
-        f"AI recommendation requested for: {movie.title}"
-    )
+        updated_movie = movie_service.update_movie(
+            movie_id,
+            movie,
+        )
 
-    recommendation = recommend_movie(
-        movie.title,
-        movie.genre,
-        movie.rating,
-    )
+        if updated_movie is None:
+            logger.warning(
+                f"Movie {movie_id} not found"
+            )
 
-    logger.info(
-        "AI recommendation generated successfully"
-    )
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Movie not found",
+            )
 
-    return {
-        "recommendation": recommendation
-    }
+        logger.info(
+            f"Movie {movie_id} updated successfully"
+        )
+
+        return updated_movie
+
+    except HTTPException:
+        raise
+
+    except Exception as e:
+        logger.exception(
+            f"Unexpected error while updating movie {movie_id}: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while updating the movie.",
+        )
+
+
+# ---------------- DELETE ---------------- #
+
+@router.delete(
+    "/{movie_id}",
+)
+def delete_movie(movie_id: int):
+    try:
+        logger.info(
+            f"Deleting movie {movie_id}"
+        )
+
+        movie = movie_service.delete_movie(movie_id)
+
+        if movie is None:
+            logger.warning(
+                f"Movie {movie_id} not found"
+            )
+
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Movie not found",
+            )
+
+        logger.info(
+            f"Movie {movie_id} deleted successfully"
+        )
+
+        return {
+            "message": "Movie deleted successfully"
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception as e:
+        logger.exception(
+            f"Unexpected error while deleting movie {movie_id}: {e}"
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="An unexpected error occurred while deleting the movie.",
+        )

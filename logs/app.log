@@ -21,3 +21,106 @@
 2026-08-05 12:20:42,655 | INFO | Database save successful. Movie id: 14
 2026-08-05 12:20:42,656 | INFO | Movie created successfully with id: 14
 2026-08-05 12:20:53,431 | INFO | MyMovieList API shutting down
+2026-08-05 15:28:25,935 | INFO | Groq API key loaded successfully.
+2026-08-05 15:28:26,528 | INFO | MyMovieList API started successfully
+2026-08-05 15:28:27,873 | INFO | Root endpoint accessed
+2026-08-05 15:31:39,085 | INFO | MyMovieList API shutting down
+2026-08-05 15:43:54,028 | INFO | Groq API key loaded successfully.
+2026-08-05 15:43:54,552 | INFO | MyMovieList API started successfully
+2026-08-05 15:44:00,023 | INFO | Root endpoint accessed
+2026-08-05 15:46:38,774 | INFO | MyMovieList API shutting down
+2026-08-05 15:46:40,424 | INFO | Groq API key loaded successfully.
+2026-08-05 15:46:40,930 | INFO | MyMovieList API started successfully
+2026-08-05 15:46:59,235 | INFO | MyMovieList API shutting down
+2026-08-05 15:47:09,147 | INFO | Groq API key loaded successfully.
+2026-08-05 15:47:09,676 | INFO | MyMovieList API started successfully
+2026-08-05 15:47:29,857 | INFO | AI recommendation requested for: inception
+2026-08-05 15:47:29,857 | INFO | Sending recommendation request for 'inception'
+2026-08-05 15:47:31,302 | INFO | Recommendation generated successfully for 'inception'
+2026-08-05 15:47:31,303 | INFO | AI recommendation generated successfully
+2026-08-05 15:47:52,817 | INFO | AI recommendation requested for: spiderman
+2026-08-05 15:47:52,818 | INFO | Sending recommendation request for 'spiderman'
+2026-08-05 15:47:53,508 | INFO | Recommendation generated successfully for 'spiderman'
+2026-08-05 15:47:53,509 | INFO | AI recommendation generated successfully
+2026-08-05 15:51:09,470 | INFO | MyMovieList API shutting down
+2026-08-05 15:51:11,249 | INFO | Groq API key loaded successfully.
+2026-08-05 15:51:24,656 | INFO | Groq API key loaded successfully.
+2026-08-05 15:51:35,382 | INFO | Groq API key loaded successfully.
+2026-08-05 15:52:25,930 | INFO | Groq API key loaded successfully.
+2026-08-05 15:52:49,084 | INFO | Groq API key loaded successfully.
+2026-08-05 15:52:49,614 | INFO | MyMovieList API started successfully
+2026-08-05 15:53:16,257 | INFO | MyMovieList API shutting down
+2026-08-05 15:55:25,997 | INFO | Groq API key loaded successfully.
+2026-08-05 15:55:26,489 | INFO | MyMovieList API started successfully
+2026-08-05 15:55:30,498 | INFO | Root endpoint accessed
+2026-08-05 15:56:15,332 | INFO | Updating movie id: 1
+2026-08-05 15:56:15,333 | ERROR | Unexpected error while updating movie 1: update_movie() missing 1 required positional argument: 'movie'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 172, in update_movie
+    updated_movie = movie_service.update_movie(
+        movie_id,
+        movie,
+    )
+TypeError: update_movie() missing 1 required positional argument: 'movie'
+2026-08-05 15:56:22,742 | INFO | MyMovieList API shutting down
+2026-08-05 15:57:52,093 | INFO | Groq API key loaded successfully.
+2026-08-05 15:57:52,614 | INFO | MyMovieList API started successfully
+2026-08-05 15:57:54,641 | INFO | Root endpoint accessed
+2026-08-05 15:57:59,221 | INFO | Root endpoint accessed
+2026-08-05 15:58:18,562 | INFO | Updating movie id: 1
+2026-08-05 15:58:18,563 | ERROR | Unexpected error while updating movie 1: update_movie() missing 1 required positional argument: 'movie'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 172, in update_movie
+    updated_movie = movie_service.update_movie(
+        movie_id,
+        movie,
+    )
+TypeError: update_movie() missing 1 required positional argument: 'movie'
+2026-08-05 16:00:43,880 | INFO | MyMovieList API shutting down
+2026-08-05 16:00:45,532 | INFO | Groq API key loaded successfully.
+2026-08-05 16:00:46,032 | INFO | MyMovieList API started successfully
+2026-08-05 16:00:57,957 | INFO | MyMovieList API shutting down
+2026-08-05 16:00:59,706 | INFO | Groq API key loaded successfully.
+2026-08-05 16:01:00,221 | INFO | MyMovieList API started successfully
+2026-08-05 16:01:24,441 | INFO | Updating movie id: 1
+2026-08-05 16:01:24,471 | INFO | Movie id 1 updated successfully
+2026-08-05 16:06:01,654 | INFO | MyMovieList API shutting down
+2026-08-05 16:06:03,422 | INFO | Groq API key loaded successfully.
+2026-08-05 16:06:03,920 | INFO | MyMovieList API started successfully
+2026-08-05 16:06:22,307 | INFO | MyMovieList API shutting down
+2026-08-05 16:06:24,048 | INFO | Groq API key loaded successfully.
+2026-08-05 16:06:24,534 | INFO | MyMovieList API started successfully
+2026-08-05 16:06:49,687 | INFO | MyMovieList API shutting down
+2026-08-05 16:06:51,376 | INFO | Groq API key loaded successfully.
+2026-08-05 16:06:51,906 | INFO | MyMovieList API started successfully
+2026-08-05 16:06:57,247 | INFO | MyMovieList API shutting down
+2026-08-05 16:06:58,727 | INFO | Groq API key loaded successfully.
+2026-08-05 16:06:59,271 | INFO | MyMovieList API started successfully
+2026-08-05 16:07:03,452 | INFO | MyMovieList API shutting down
+2026-08-05 16:07:09,862 | INFO | Groq API key loaded successfully.
+2026-08-05 16:07:10,388 | INFO | MyMovieList API started successfully
+2026-08-05 16:07:14,924 | INFO | Root endpoint accessed
+2026-08-05 16:07:27,740 | INFO | Updating movie 1
+2026-08-05 16:07:27,767 | INFO | Movie 1 updated
+2026-08-05 16:07:27,768 | INFO | Movie 1 updated successfully
+2026-08-05 16:09:58,187 | INFO | Updating movie 2
+2026-08-05 16:09:58,200 | INFO | Movie 2 updated
+2026-08-05 16:09:58,201 | INFO | Movie 2 updated successfully
+2026-08-05 16:11:25,720 | INFO | MyMovieList API shutting down
+2026-08-05 16:12:15,914 | INFO | Groq API key loaded successfully.
+2026-08-05 16:12:16,425 | INFO | MyMovieList API started successfully
+2026-08-05 16:12:40,664 | INFO | Fetching movie 1
+2026-08-05 16:12:40,665 | ERROR | Unexpected error while fetching movie 1: Testing error handling
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 137, in get_movie
+    movie = movie_service.get_movie(movie_id)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\movie_service.py", line 66, in get_movie
+    raise Exception("Testing error handling")
+Exception: Testing error handling
+2026-08-05 16:12:51,782 | INFO | MyMovieList API shutting down
+2026-08-05 16:13:55,337 | INFO | Groq API key loaded successfully.
+2026-08-05 16:13:55,833 | INFO | MyMovieList API started successfully
+2026-08-05 16:14:01,689 | INFO | Fetching movie 1
+2026-08-05 16:14:06,514 | INFO | Fetching movie 100
+2026-08-05 16:14:06,515 | WARNING | Movie 100 not found
+2026-08-05 16:15:02,949 | INFO | MyMovieList API shutting down

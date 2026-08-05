@@ -1,14 +1,18 @@
-from app.utils.logger import logger
+from sqlalchemy.exc import SQLAlchemyError
+
 from app.database import SessionLocal
 from app.models.movie import Movie
-from app.schemas.movie import MovieCreate
+from app.schemas.movie import MovieCreate, MovieUpdate
+from app.utils.logger import logger
 
 
 def create_movie(movie: MovieCreate):
     db = SessionLocal()
 
     try:
-        logger.info(f"Saving movie to database: {movie.title}")
+        logger.info(
+            f"Saving movie '{movie.title}'"
+        )
 
         new_movie = Movie(
             title=movie.title,
@@ -24,14 +28,14 @@ def create_movie(movie: MovieCreate):
         db.refresh(new_movie)
 
         logger.info(
-            f"Database save successful. Movie id: {new_movie.id}"
+            f"Movie created with id {new_movie.id}"
         )
 
         return new_movie
 
-    except Exception as e:
+    except SQLAlchemyError as e:
         db.rollback()
-        logger.error(f"Error creating movie: {e}")
+        logger.exception(e)
         raise
 
     finally:
@@ -42,25 +46,45 @@ def get_movies():
     db = SessionLocal()
 
     try:
-        return db.query(Movie).all()
+        movies = db.query(Movie).all()
+
+        logger.info(
+            f"{len(movies)} movies retrieved"
+        )
+
+        return movies
+
+    except SQLAlchemyError as e:
+        logger.exception(e)
+        raise
 
     finally:
         db.close()
 
 
 def get_movie(movie_id: int):
+    
     db = SessionLocal()
 
     try:
-        return db.query(Movie).filter(
+        movie = db.query(Movie).filter(
             Movie.id == movie_id
         ).first()
+
+        return movie
+
+    except SQLAlchemyError as e:
+        logger.exception(e)
+        raise
 
     finally:
         db.close()
 
 
-def update_movie(movie_id: int, movie: MovieCreate):
+def update_movie(
+    movie_id: int,
+    movie: MovieUpdate,
+):
     db = SessionLocal()
 
     try:
@@ -71,25 +95,29 @@ def update_movie(movie_id: int, movie: MovieCreate):
         if existing_movie is None:
             return None
 
-        existing_movie.title = movie.title
-        existing_movie.director = movie.director
-        existing_movie.genre = movie.genre
-        existing_movie.release_year = movie.release_year
-        existing_movie.rating = movie.rating
-        existing_movie.watched = movie.watched
+        update_data = movie.model_dump(
+            exclude_unset=True
+        )
+
+        for key, value in update_data.items():
+            setattr(
+                existing_movie,
+                key,
+                value
+            )
 
         db.commit()
         db.refresh(existing_movie)
 
         logger.info(
-            f"Movie id {movie_id} updated successfully"
+            f"Movie {movie_id} updated"
         )
 
         return existing_movie
 
-    except Exception as e:
+    except SQLAlchemyError as e:
         db.rollback()
-        logger.error(f"Error updating movie: {e}")
+        logger.exception(e)
         raise
 
     finally:
@@ -100,32 +128,25 @@ def delete_movie(movie_id: int):
     db = SessionLocal()
 
     try:
-        logger.info(
-            f"Searching movie id {movie_id} for deletion"
-        )
-
         movie = db.query(Movie).filter(
             Movie.id == movie_id
         ).first()
 
         if movie is None:
-            logger.warning(
-                f"Movie id {movie_id} does not exist"
-            )
             return None
 
         db.delete(movie)
         db.commit()
 
         logger.info(
-            f"Movie id {movie_id} deleted from database"
+            f"Movie {movie_id} deleted"
         )
 
         return movie
 
-    except Exception as e:
+    except SQLAlchemyError as e:
         db.rollback()
-        logger.error(f"Error deleting movie: {e}")
+        logger.exception(e)
         raise
 
     finally:

@@ -1,39 +1,63 @@
 import os
+
 from groq import Groq
 
-print("========== DEBUG ==========")
-print("GROQ_API_KEY exists:", os.getenv("GROQ_API_KEY") is not None)
-print("GROQ_API_KEY first 10 chars:", str(os.getenv("GROQ_API_KEY"))[:10])
-print("===========================")
+from app.utils.logger import logger
+
 
 api_key = os.getenv("GROQ_API_KEY")
+
+if api_key:
+    logger.info("Groq API key loaded successfully.")
+else:
+    logger.warning("Groq API key not found.")
+
 client = Groq(api_key=api_key) if api_key else None
 
-
-def recommend_movie(title: str, genre: str, rating: float):
+def recommend_movie(title: str):
     if client is None:
+        logger.error(
+            "AI recommendation failed: API key missing."
+        )
         return "AI recommendation unavailable. API key missing."
 
     prompt = f"""
-The user enjoyed this movie:
-
-Title: {title}
-Genre: {genre}
-Rating: {rating}/10
+The user enjoyed the movie "{title}".
 
 Recommend ONE similar movie.
-Explain why in 2-3 sentences.
-Don't use markdown.
+
+In 2-3 sentences explain why it is similar.
+
+If the movie title is unknown or does not exist, reply only:
+Movie not found.
+
+Do not use markdown.
 """
 
     try:
+        logger.info(
+            f"Sending recommendation request for '{title}'"
+        )
+
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+        )
+
+        logger.info(
+            f"Recommendation generated successfully for '{title}'"
         )
 
         return response.choices[0].message.content
 
     except Exception as e:
-        print("Groq Error:", e)
-        return str(e)
+        logger.exception(
+            f"Groq API error while recommending '{title}': {e}"
+        )
+
+        return "Unable to generate recommendation at this time."
