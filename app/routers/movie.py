@@ -1,39 +1,30 @@
-# API endpoints
 from app.utils.logger import logger
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, HTTPException, status
 
-from app.database import SessionLocal
 from app.schemas.movie import MovieCreate, MovieResponse
 from app.services import movie_service
 from app.schemas.recommendation import (
     RecommendationRequest,
     RecommendationResponse,
 )
-
 from app.services.ai_service import recommend_movie
-router = APIRouter(prefix="/movies", tags=["Movies"])
 
-
-# Database Dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+router = APIRouter(
+    prefix="/movies",
+    tags=["Movies"]
+)
 
 
 @router.post(
     "/",
     response_model=MovieResponse,
-    status_code=status.HTTP_201_CREATED
+    status_code=status.HTTP_201_CREATED,
 )
-def create_movie(movie: MovieCreate, db: Session = Depends(get_db)):
+def create_movie(movie: MovieCreate):
 
     logger.info(f"Creating movie: {movie.title}")
 
-    created_movie = movie_service.create_movie(db, movie)
+    created_movie = movie_service.create_movie(movie)
 
     logger.info(
         f"Movie created successfully with id: {created_movie.id}"
@@ -42,24 +33,34 @@ def create_movie(movie: MovieCreate, db: Session = Depends(get_db)):
     return created_movie
 
 
-@router.get("/", response_model=list[MovieResponse])
-def get_movies(db: Session = Depends(get_db)):
+@router.get(
+    "/",
+    response_model=list[MovieResponse]
+)
+def get_movies():
 
     logger.info("Fetching all movies")
 
-    movies = movie_service.get_movies(db)
+    movies = movie_service.get_movies()
 
-    logger.info(f"Total movies found: {len(movies)}")
+    logger.info(
+        f"Total movies found: {len(movies)}"
+    )
 
     return movies
 
 
-@router.get("/{movie_id}", response_model=MovieResponse)
-def get_movie(movie_id: int, db: Session = Depends(get_db)):
+@router.get(
+    "/{movie_id}",
+    response_model=MovieResponse
+)
+def get_movie(movie_id: int):
 
-    logger.info(f"Fetching movie with id: {movie_id}")
+    logger.info(
+        f"Fetching movie with id: {movie_id}"
+    )
 
-    movie = movie_service.get_movie(db, movie_id)
+    movie = movie_service.get_movie(movie_id)
 
     if movie is None:
         logger.warning(
@@ -68,25 +69,28 @@ def get_movie(movie_id: int, db: Session = Depends(get_db)):
 
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found"
+            detail="Movie not found",
         )
 
     return movie
 
 
-@router.put("/{movie_id}", response_model=MovieResponse)
+@router.put(
+    "/{movie_id}",
+    response_model=MovieResponse
+)
 def update_movie(
     movie_id: int,
     movie: MovieCreate,
-    db: Session = Depends(get_db)
 ):
 
-    logger.info(f"Updating movie id: {movie_id}")
+    logger.info(
+        f"Updating movie id: {movie_id}"
+    )
 
     updated_movie = movie_service.update_movie(
-        db,
         movie_id,
-        movie
+        movie,
     )
 
     if updated_movie is None:
@@ -96,45 +100,43 @@ def update_movie(
 
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found"
+            detail="Movie not found",
         )
-
-    logger.info(
-        f"Movie id {movie_id} updated successfully"
-    )
 
     return updated_movie
 
 
 @router.delete("/{movie_id}")
-def delete_movie(movie_id: int, db: Session = Depends(get_db)):
+def delete_movie(movie_id: int):
 
-    logger.info(f"Deleting movie id: {movie_id}")
+    logger.info(
+        f"Deleting movie id: {movie_id}"
+    )
 
-    movie = movie_service.delete_movie(db, movie_id)
+    movie = movie_service.delete_movie(movie_id)
 
     if movie is None:
-
         logger.warning(
             f"Movie id {movie_id} not found for deletion"
         )
 
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Movie not found"
+            detail="Movie not found",
         )
 
-    logger.info(
-        f"Movie id {movie_id} deleted successfully"
-    )
+    return {
+        "message": "Movie deleted successfully"
+    }
 
-    return {"message": "Movie deleted successfully"}
 
 @router.post(
     "/recommend",
-    response_model=RecommendationResponse
+    response_model=RecommendationResponse,
 )
-def ai_recommend(movie: RecommendationRequest):
+def ai_recommend(
+    movie: RecommendationRequest,
+):
 
     logger.info(
         f"AI recommendation requested for: {movie.title}"
