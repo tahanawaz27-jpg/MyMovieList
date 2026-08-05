@@ -5,10 +5,12 @@ load_dotenv()
 from fastapi import FastAPI
 
 from app.routers.movie import router
+from app.routers.user import router as user_router
 from fastapi import FastAPI
 
 from app.database import Base, engine
 from app.models.movie import Movie
+from app.models.user import User
 from app.utils.logger import logger
 
 
@@ -37,3 +39,4 @@ def root():
 
 # Include movie routes
 app.include_router(router)
+app.include_router(user_router)

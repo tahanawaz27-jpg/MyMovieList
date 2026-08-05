@@ -124,3 +124,740 @@ Exception: Testing error handling
 2026-08-05 16:14:06,514 | INFO | Fetching movie 100
 2026-08-05 16:14:06,515 | WARNING | Movie 100 not found
 2026-08-05 16:15:02,949 | INFO | MyMovieList API shutting down
+2026-08-05 17:10:14,460 | INFO | Groq API key loaded successfully.
+2026-08-05 17:10:14,975 | INFO | MyMovieList API started successfully
+2026-08-05 17:10:18,721 | INFO | Root endpoint accessed
+2026-08-05 17:12:30,298 | INFO | MyMovieList API shutting down
+2026-08-05 17:13:11,265 | INFO | Groq API key loaded successfully.
+2026-08-05 17:13:11,816 | INFO | MyMovieList API started successfully
+2026-08-05 17:13:14,320 | INFO | Root endpoint accessed
+2026-08-05 17:14:07,498 | INFO | MyMovieList API shutting down
+2026-08-05 17:14:09,321 | INFO | Groq API key loaded successfully.
+2026-08-05 17:14:09,892 | INFO | MyMovieList API started successfully
+2026-08-05 17:14:13,109 | INFO | MyMovieList API shutting down
+2026-08-05 17:14:38,851 | INFO | Groq API key loaded successfully.
+2026-08-05 17:14:39,381 | INFO | MyMovieList API started successfully
+2026-08-05 17:14:41,942 | INFO | Root endpoint accessed
+2026-08-05 17:14:48,566 | INFO | MyMovieList API shutting down
+2026-08-05 17:21:43,583 | INFO | Groq API key loaded successfully.
+2026-08-05 17:21:44,161 | INFO | MyMovieList API started successfully
+2026-08-05 17:21:45,248 | INFO | Root endpoint accessed
+2026-08-05 17:22:10,729 | INFO | Registering user: taha@gmail.com
+2026-08-05 17:22:11,174 | INFO | User registered: taha@gmail.com
+2026-08-05 17:22:11,174 | INFO | User registered successfully: taha@gmail.com
+2026-08-05 17:23:12,896 | INFO | MyMovieList API shutting down
+2026-08-05 17:23:14,850 | INFO | Groq API key loaded successfully.
+2026-08-05 17:23:15,438 | INFO | MyMovieList API started successfully
+2026-08-05 17:23:15,555 | INFO | MyMovieList API shutting down
+2026-08-05 17:23:20,674 | INFO | Groq API key loaded successfully.
+2026-08-05 17:23:21,249 | INFO | MyMovieList API started successfully
+2026-08-05 17:23:50,819 | INFO | Registering user: taha@gmail.com
+2026-08-05 17:23:57,482 | INFO | Registering user: taha@gmail1.com
+2026-08-05 17:23:57,910 | ERROR | Database error while creating user: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)]
+[parameters: ('taha', 'taha@gmail1.com', '$2b$12$bFoaRxq63KV5nX7m9ZI/BO.2PeqvLVG/.8LSHEKfPyO8s82lwg1F6')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\user_service.py", line 38, in create_user
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2035, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1316, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+        statement,
+        params,
+        execution_options=execution_options,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)]
+[parameters: ('taha', 'taha@gmail1.com', '$2b$12$bFoaRxq63KV5nX7m9ZI/BO.2PeqvLVG/.8LSHEKfPyO8s82lwg1F6')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-08-05 17:23:58,052 | ERROR | Registration failed: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)]
+[parameters: ('taha', 'taha@gmail1.com', '$2b$12$bFoaRxq63KV5nX7m9ZI/BO.2PeqvLVG/.8LSHEKfPyO8s82lwg1F6')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\user.py", line 39, in register_user
+    new_user = user_service.create_user(
+        db,
+        user,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\user_service.py", line 38, in create_user
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2035, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1316, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4488, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+        statement,
+        params,
+        execution_options=execution_options,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)]
+[parameters: ('taha', 'taha@gmail1.com', '$2b$12$bFoaRxq63KV5nX7m9ZI/BO.2PeqvLVG/.8LSHEKfPyO8s82lwg1F6')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-08-05 17:28:01,241 | INFO | MyMovieList API shutting down
+2026-08-05 17:28:03,303 | INFO | Groq API key loaded successfully.
+2026-08-05 17:28:08,873 | INFO | Groq API key loaded successfully.
+2026-08-05 17:28:14,454 | INFO | Groq API key loaded successfully.
+2026-08-05 17:28:20,131 | INFO | Groq API key loaded successfully.
+2026-08-05 17:28:30,207 | INFO | Groq API key loaded successfully.
+2026-08-05 17:28:30,822 | INFO | MyMovieList API started successfully
+2026-08-05 17:28:56,508 | INFO | MyMovieList API shutting down
+2026-08-05 17:28:58,592 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:26,576 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:27,200 | INFO | MyMovieList API started successfully
+2026-08-05 17:29:30,503 | INFO | MyMovieList API shutting down
+2026-08-05 17:29:32,389 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:42,402 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:47,899 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:53,597 | INFO | Groq API key loaded successfully.
+2026-08-05 17:29:58,949 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:04,543 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:10,229 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:15,758 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:43,790 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:49,444 | INFO | Groq API key loaded successfully.
+2026-08-05 17:30:50,069 | INFO | MyMovieList API started successfully
+2026-08-05 17:31:29,657 | INFO | MyMovieList API shutting down
+2026-08-05 17:31:31,580 | INFO | Groq API key loaded successfully.
+2026-08-05 17:31:32,215 | INFO | MyMovieList API started successfully
+2026-08-05 17:32:11,342 | INFO | MyMovieList API shutting down
+2026-08-05 17:32:13,207 | INFO | Groq API key loaded successfully.
+2026-08-05 17:32:13,814 | INFO | MyMovieList API started successfully
+2026-08-05 17:32:16,810 | INFO | MyMovieList API shutting down
+2026-08-05 17:32:26,110 | INFO | Groq API key loaded successfully.
+2026-08-05 17:32:26,694 | INFO | MyMovieList API started successfully
+2026-08-05 17:32:32,862 | INFO | Root endpoint accessed
+2026-08-05 17:32:48,842 | INFO | Registering user: taha3@gmail.com
+2026-08-05 17:32:49,267 | INFO | User registered successfully: taha3@gmail.com
+2026-08-05 17:32:49,268 | INFO | User registered successfully: taha3@gmail.com
+2026-08-05 17:33:02,594 | INFO | Registering user: taha3@gmail.com
+2026-08-05 17:33:02,596 | WARNING | Registration failed. Email already exists: taha3@gmail.com
+2026-08-05 17:33:02,597 | WARNING | Registration failed. Email already exists: taha3@gmail.com
+2026-08-05 17:33:13,988 | INFO | Registering user: another@gmail.com
+2026-08-05 17:33:13,992 | WARNING | Registration failed. Username already exists: taha3
+2026-08-05 17:33:13,992 | WARNING | Registration failed. Username already exists: taha3
+2026-08-05 17:35:22,646 | INFO | MyMovieList API shutting down
+2026-08-05 17:35:24,601 | INFO | Groq API key loaded successfully.
+2026-08-05 17:35:25,181 | INFO | MyMovieList API started successfully
+2026-08-05 17:35:39,483 | INFO | MyMovieList API shutting down
+2026-08-05 17:35:47,535 | INFO | Groq API key loaded successfully.
+2026-08-05 17:35:48,118 | INFO | MyMovieList API started successfully
+2026-08-05 17:36:01,155 | INFO | Registering user: another@gmail.com
+2026-08-05 17:36:01,602 | INFO | User registered successfully: another@gmail.com
+2026-08-05 17:36:01,603 | INFO | User registered successfully: another@gmail.com
+2026-08-05 17:36:10,677 | INFO | Registering user: another@gmail.com
+2026-08-05 17:36:10,679 | WARNING | Registration failed. Email already exists: another@gmail.com
+2026-08-05 17:36:10,679 | WARNING | Registration failed. Email already exists: another@gmail.com
+2026-08-05 17:36:45,721 | INFO | MyMovieList API shutting down
+2026-08-05 17:36:47,745 | INFO | Groq API key loaded successfully.
+2026-08-05 17:36:48,315 | INFO | MyMovieList API started successfully
+2026-08-05 17:36:48,418 | INFO | MyMovieList API shutting down
+2026-08-05 17:38:40,273 | INFO | Groq API key loaded successfully.
+2026-08-05 17:38:41,165 | INFO | MyMovieList API started successfully
+2026-08-05 17:38:42,875 | INFO | Root endpoint accessed
+2026-08-05 17:39:05,498 | INFO | Registering user: taha@gmail.com
+2026-08-05 17:39:05,943 | INFO | User registered successfully: taha@gmail.com
+2026-08-05 17:39:05,943 | INFO | User registered successfully: taha@gmail.com
+2026-08-05 17:39:23,595 | INFO | User logged in successfully: taha@gmail.com
+2026-08-05 17:39:56,037 | INFO | MyMovieList API shutting down
+2026-08-05 17:40:21,050 | INFO | Groq API key loaded successfully.
+2026-08-05 17:40:21,759 | INFO | MyMovieList API started successfully
+2026-08-05 17:42:53,826 | INFO | MyMovieList API shutting down
+2026-08-05 17:50:31,068 | INFO | Groq API key loaded successfully.
+2026-08-05 17:50:31,610 | INFO | MyMovieList API started successfully
+2026-08-05 17:51:01,625 | INFO | User logged in successfully: taha@gmail.com
+2026-08-05 17:56:24,480 | INFO | MyMovieList API shutting down
+2026-08-05 17:56:26,543 | INFO | Groq API key loaded successfully.
+2026-08-05 18:01:39,549 | INFO | Groq API key loaded successfully.
+2026-08-05 18:01:40,196 | INFO | MyMovieList API started successfully
+2026-08-05 18:01:44,840 | INFO | Root endpoint accessed
+2026-08-05 18:02:29,412 | INFO | Registering user: taha@example.com
+2026-08-05 18:02:29,844 | INFO | User registered successfully: taha@example.com
+2026-08-05 18:02:29,844 | INFO | User registered successfully: taha@example.com
+2026-08-05 18:03:02,684 | INFO | Login attempt: tahanawaz
+2026-08-05 18:03:02,684 | INFO | Login attempt: tahanawaz
+2026-08-05 18:03:02,686 | WARNING | Login failed. Email not found: tahanawaz
+2026-08-05 18:03:02,687 | WARNING | Failed login attempt: tahanawaz
+2026-08-05 18:03:19,321 | INFO | Login attempt: tahanawaz
+2026-08-05 18:03:19,321 | INFO | Login attempt: tahanawaz
+2026-08-05 18:03:19,323 | WARNING | Login failed. Email not found: tahanawaz
+2026-08-05 18:03:19,323 | WARNING | Failed login attempt: tahanawaz
+2026-08-05 18:03:32,722 | INFO | Login attempt: taha@gmail.com
+2026-08-05 18:03:32,722 | INFO | Login attempt: taha@gmail.com
+2026-08-05 18:03:33,094 | WARNING | Login failed. Incorrect password for taha@gmail.com
+2026-08-05 18:03:33,095 | WARNING | Failed login attempt: taha@gmail.com
+2026-08-05 18:04:38,527 | INFO | Registering user: tahanawaz27@example.com
+2026-08-05 18:04:38,918 | INFO | User registered successfully: tahanawaz27@example.com
+2026-08-05 18:04:38,919 | INFO | User registered successfully: tahanawaz27@example.com
+2026-08-05 18:05:03,507 | INFO | Login attempt: tahanawaz1
+2026-08-05 18:05:03,507 | INFO | Login attempt: tahanawaz1
+2026-08-05 18:05:03,509 | WARNING | Login failed. Email not found: tahanawaz1
+2026-08-05 18:05:03,510 | WARNING | Failed login attempt: tahanawaz1
+2026-08-05 18:05:14,832 | INFO | Login attempt: tahanawaz27@gmail.com
+2026-08-05 18:05:14,832 | INFO | Login attempt: tahanawaz27@gmail.com
+2026-08-05 18:05:14,833 | WARNING | Login failed. Email not found: tahanawaz27@gmail.com
+2026-08-05 18:05:14,834 | WARNING | Failed login attempt: tahanawaz27@gmail.com
+2026-08-05 18:05:28,415 | INFO | Login attempt: tahanawaz1
+2026-08-05 18:05:28,415 | INFO | Login attempt: tahanawaz1
+2026-08-05 18:05:28,417 | WARNING | Login failed. Email not found: tahanawaz1
+2026-08-05 18:05:28,417 | WARNING | Failed login attempt: tahanawaz1
+2026-08-05 18:07:18,195 | INFO | MyMovieList API shutting down
+2026-08-05 18:07:32,930 | INFO | Groq API key loaded successfully.
+2026-08-05 18:07:33,505 | INFO | MyMovieList API started successfully
+2026-08-05 18:07:38,189 | INFO | MyMovieList API shutting down
+2026-08-05 18:07:49,234 | INFO | Groq API key loaded successfully.
+2026-08-05 18:07:49,794 | INFO | MyMovieList API started successfully
+2026-08-05 18:07:52,991 | INFO | Root endpoint accessed
+2026-08-05 18:08:17,669 | INFO | Registering user: tahanawaz277@example.com
+2026-08-05 18:08:18,096 | INFO | User registered successfully: tahanawaz277@example.com
+2026-08-05 18:08:18,096 | INFO | User registered successfully: tahanawaz277@example.com
+2026-08-05 18:08:43,871 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:08:43,872 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:08:43,883 | WARNING | Login failed. Email not found: tahanawaz27
+2026-08-05 18:08:43,884 | WARNING | Failed login attempt: tahanawaz27
+2026-08-05 18:09:05,047 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:09:05,048 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:09:05,049 | WARNING | Login failed. Email not found: tahanawaz27
+2026-08-05 18:09:05,049 | WARNING | Failed login attempt: tahanawaz27
+2026-08-05 18:09:47,040 | INFO | Login attempt: tahanawaz277@gmail.com
+2026-08-05 18:09:47,041 | INFO | Login attempt: tahanawaz277@gmail.com
+2026-08-05 18:09:47,042 | WARNING | Login failed. Email not found: tahanawaz277@gmail.com
+2026-08-05 18:09:47,042 | WARNING | Failed login attempt: tahanawaz277@gmail.com
+2026-08-05 18:10:49,226 | INFO | Registering user: tahanawaz277@gmail.com
+2026-08-05 18:10:49,230 | WARNING | Registration failed. Username already exists: taha
+2026-08-05 18:10:49,230 | WARNING | Registration failed. Username already exists: taha
+2026-08-05 18:13:38,382 | INFO | MyMovieList API shutting down
+2026-08-05 18:13:40,685 | INFO | Groq API key loaded successfully.
+2026-08-05 18:13:41,294 | INFO | MyMovieList API started successfully
+2026-08-05 18:14:16,695 | INFO | MyMovieList API shutting down
+2026-08-05 18:14:18,530 | INFO | Groq API key loaded successfully.
+2026-08-05 18:14:19,129 | INFO | MyMovieList API started successfully
+2026-08-05 18:15:21,737 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:15:21,738 | INFO | Login attempt: tahanawaz27
+2026-08-05 18:15:21,745 | INFO | Users in database:
+2026-08-05 18:15:21,746 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:15:21,746 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:15:21,747 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:15:21,747 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:15:21,747 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:15:21,750 | WARNING | Login failed. Email not found: tahanawaz27
+2026-08-05 18:15:21,750 | WARNING | Failed login attempt: tahanawaz27
+2026-08-05 18:16:13,896 | INFO | Registering user: testingemail@example.com
+2026-08-05 18:16:14,328 | INFO | User registered successfully: testingemail@example.com
+2026-08-05 18:16:14,328 | INFO | User registered successfully: testingemail@example.com
+2026-08-05 18:16:47,932 | INFO | Login attempt: testinguser
+2026-08-05 18:16:47,932 | INFO | Login attempt: testinguser
+2026-08-05 18:16:47,933 | INFO | Users in database:
+2026-08-05 18:16:47,934 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:16:47,934 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:16:47,934 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:16:47,934 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:16:47,935 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:16:47,935 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:16:47,937 | WARNING | Login failed. Email not found: testinguser
+2026-08-05 18:16:47,938 | WARNING | Failed login attempt: testinguser
+2026-08-05 18:17:09,137 | INFO | Login attempt: testingemail@gmail.com
+2026-08-05 18:17:09,137 | INFO | Login attempt: testingemail@gmail.com
+2026-08-05 18:17:09,138 | INFO | Users in database:
+2026-08-05 18:17:09,138 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:17:09,139 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:17:09,139 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:17:09,139 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:17:09,139 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:17:09,139 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:17:09,142 | WARNING | Login failed. Email not found: testingemail@gmail.com
+2026-08-05 18:17:09,142 | WARNING | Failed login attempt: testingemail@gmail.com
+2026-08-05 18:18:04,646 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:18:04,647 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:18:04,651 | INFO | Users in database:
+2026-08-05 18:18:04,651 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:18:04,653 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:18:04,654 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:18:04,657 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:18:04,658 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:18:04,659 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:18:05,028 | WARNING | Incorrect password for testingemail@example.com
+2026-08-05 18:18:05,029 | WARNING | Failed login attempt: testingemail@example.com
+2026-08-05 18:19:15,768 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:19:15,768 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:19:15,769 | INFO | Users in database:
+2026-08-05 18:19:15,770 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:19:15,770 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:19:15,770 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:19:15,771 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:19:15,772 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:19:15,772 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:19:16,153 | INFO | User authenticated successfully: testingemail@example.com
+2026-08-05 18:19:16,168 | INFO | User logged in successfully: testingemail@example.com
+2026-08-05 18:20:17,683 | INFO | Login attempt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InRlc3RpbmdlbWFpbEBleGFtcGxlLmNvbSIsImV4cCI6MTc4NTkzOTU1Nn0.pSZBL7Qh-GRycliAhI4FTXaCdSyqXl5iW32iMwWcQe0
+2026-08-05 18:20:17,684 | INFO | Login attempt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InRlc3RpbmdlbWFpbEBleGFtcGxlLmNvbSIsImV4cCI6MTc4NTkzOTU1Nn0.pSZBL7Qh-GRycliAhI4FTXaCdSyqXl5iW32iMwWcQe0
+2026-08-05 18:20:17,685 | INFO | Users in database:
+2026-08-05 18:20:17,686 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:20:17,686 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:20:17,686 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:20:17,686 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:20:17,687 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:20:17,687 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:20:17,689 | WARNING | Login failed. Email not found: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InRlc3RpbmdlbWFpbEBleGFtcGxlLmNvbSIsImV4cCI6MTc4NTkzOTU1Nn0.pSZBL7Qh-GRycliAhI4FTXaCdSyqXl5iW32iMwWcQe0
+2026-08-05 18:20:17,690 | WARNING | Failed login attempt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InRlc3RpbmdlbWFpbEBleGFtcGxlLmNvbSIsImV4cCI6MTc4NTkzOTU1Nn0.pSZBL7Qh-GRycliAhI4FTXaCdSyqXl5iW32iMwWcQe0
+2026-08-05 18:26:53,926 | INFO | MyMovieList API shutting down
+2026-08-05 18:26:55,919 | INFO | Groq API key loaded successfully.
+2026-08-05 18:26:56,545 | INFO | MyMovieList API started successfully
+2026-08-05 18:27:09,515 | INFO | MyMovieList API shutting down
+2026-08-05 18:27:11,618 | INFO | Groq API key loaded successfully.
+2026-08-05 18:27:12,173 | INFO | MyMovieList API started successfully
+2026-08-05 18:27:19,297 | INFO | MyMovieList API shutting down
+2026-08-05 18:27:30,675 | INFO | Groq API key loaded successfully.
+2026-08-05 18:27:31,240 | INFO | MyMovieList API started successfully
+2026-08-05 18:28:34,508 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:28:34,509 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:28:34,523 | INFO | Users in database:
+2026-08-05 18:28:34,523 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:28:34,523 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:28:34,524 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:28:34,524 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:28:34,524 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:28:34,525 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:28:34,929 | INFO | User authenticated successfully: testingemail@example.com
+2026-08-05 18:28:34,942 | INFO | User logged in successfully: testingemail@example.com
+2026-08-05 18:29:01,019 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:29:01,019 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:29:01,020 | INFO | Users in database:
+2026-08-05 18:29:01,021 | INFO | 1 | taha3 | another@gmail.com
+2026-08-05 18:29:01,021 | INFO | 2 | taha | taha@gmail.com
+2026-08-05 18:29:01,021 | INFO | 3 | tahanawaz | taha@example.com
+2026-08-05 18:29:01,021 | INFO | 4 | tahanawaz1 | tahanawaz27@example.com
+2026-08-05 18:29:01,022 | INFO | 5 | tahanawaz27 | tahanawaz277@example.com
+2026-08-05 18:29:01,022 | INFO | 6 | testinguser | testingemail@example.com
+2026-08-05 18:29:01,375 | INFO | User authenticated successfully: testingemail@example.com
+2026-08-05 18:29:01,375 | INFO | User logged in successfully: testingemail@example.com
+2026-08-05 18:31:41,289 | INFO | MyMovieList API shutting down
+2026-08-05 18:31:43,444 | INFO | Groq API key loaded successfully.
+2026-08-05 18:31:44,042 | INFO | MyMovieList API started successfully
+2026-08-05 18:31:44,694 | INFO | MyMovieList API shutting down
+2026-08-05 18:33:03,245 | INFO | Groq API key loaded successfully.
+2026-08-05 18:33:03,843 | INFO | MyMovieList API started successfully
+2026-08-05 18:33:05,428 | INFO | MyMovieList API shutting down
+2026-08-05 18:33:17,212 | INFO | Groq API key loaded successfully.
+2026-08-05 18:33:17,785 | INFO | MyMovieList API started successfully
+2026-08-05 18:33:20,265 | INFO | MyMovieList API shutting down
+2026-08-05 18:35:59,890 | INFO | Groq API key loaded successfully.
+2026-08-05 18:36:00,421 | INFO | MyMovieList API started successfully
+2026-08-05 18:36:04,318 | INFO | Root endpoint accessed
+2026-08-05 18:36:14,774 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:36:14,775 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:36:14,786 | INFO | Users in database:
+2026-08-05 18:36:14,790 | WARNING | Login failed. Email not found: testingemail@example.com
+2026-08-05 18:36:14,791 | WARNING | Failed login attempt: testingemail@example.com
+2026-08-05 18:36:57,187 | INFO | Login attempt: testinguser
+2026-08-05 18:36:57,187 | INFO | Login attempt: testinguser
+2026-08-05 18:36:57,190 | INFO | Users in database:
+2026-08-05 18:36:57,192 | WARNING | Login failed. Email not found: testinguser
+2026-08-05 18:36:57,192 | WARNING | Failed login attempt: testinguser
+2026-08-05 18:37:29,788 | INFO | Registering user: taha111@example.com
+2026-08-05 18:37:30,204 | INFO | User registered successfully: taha111@example.com
+2026-08-05 18:37:30,205 | INFO | User registered successfully: taha111@example.com
+2026-08-05 18:37:54,256 | INFO | Login attempt: taha11
+2026-08-05 18:37:54,256 | INFO | Login attempt: taha11
+2026-08-05 18:37:54,257 | INFO | Users in database:
+2026-08-05 18:37:54,257 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:37:54,259 | WARNING | Login failed. Email not found: taha11
+2026-08-05 18:37:54,259 | WARNING | Failed login attempt: taha11
+2026-08-05 18:38:00,256 | INFO | Login attempt: taha11
+2026-08-05 18:38:00,256 | INFO | Login attempt: taha11
+2026-08-05 18:38:00,258 | INFO | Users in database:
+2026-08-05 18:38:00,258 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:38:00,260 | WARNING | Login failed. Email not found: taha11
+2026-08-05 18:38:00,260 | WARNING | Failed login attempt: taha11
+2026-08-05 18:38:04,482 | INFO | Login attempt: taha111
+2026-08-05 18:38:04,483 | INFO | Login attempt: taha111
+2026-08-05 18:38:04,485 | INFO | Users in database:
+2026-08-05 18:38:04,485 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:38:04,486 | WARNING | Login failed. Email not found: taha111
+2026-08-05 18:38:04,487 | WARNING | Failed login attempt: taha111
+2026-08-05 18:38:29,800 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:38:29,800 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:38:29,801 | INFO | Users in database:
+2026-08-05 18:38:29,801 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:38:30,162 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:38:30,179 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:38:44,452 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:38:44,453 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:38:44,454 | INFO | Users in database:
+2026-08-05 18:38:44,454 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:38:44,823 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:38:44,824 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:39:10,431 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:39:10,432 | INFO | Creating movie 'new1' for user 1
+2026-08-05 18:39:10,432 | ERROR | Unexpected error while creating movie: create_movie() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 45, in create_movie
+    created_movie = movie_service.create_movie(
+        movie,
+        current_user.id,
+    )
+TypeError: create_movie() missing 1 required positional argument: 'user_id'
+2026-08-05 18:40:04,766 | INFO | MyMovieList API shutting down
+2026-08-05 18:40:06,586 | INFO | Groq API key loaded successfully.
+2026-08-05 18:40:07,109 | INFO | MyMovieList API started successfully
+2026-08-05 18:40:18,170 | INFO | MyMovieList API shutting down
+2026-08-05 18:40:20,039 | INFO | Groq API key loaded successfully.
+2026-08-05 18:40:20,647 | INFO | MyMovieList API started successfully
+2026-08-05 18:40:30,929 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:40:30,929 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:40:30,938 | INFO | Users in database:
+2026-08-05 18:40:30,938 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:40:31,329 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:40:31,338 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:40:42,888 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:40:42,889 | INFO | Creating movie 'idk' for user 1
+2026-08-05 18:40:42,890 | ERROR | Unexpected error while creating movie: name 'db' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 46, in create_movie
+    db,
+    ^^
+NameError: name 'db' is not defined
+2026-08-05 18:40:58,779 | INFO | MyMovieList API shutting down
+2026-08-05 18:41:00,734 | INFO | Groq API key loaded successfully.
+2026-08-05 18:41:01,289 | INFO | MyMovieList API started successfully
+2026-08-05 18:41:29,492 | INFO | MyMovieList API shutting down
+2026-08-05 18:41:31,320 | INFO | Groq API key loaded successfully.
+2026-08-05 18:41:31,881 | INFO | MyMovieList API started successfully
+2026-08-05 18:41:38,203 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:41:38,203 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:41:38,212 | INFO | Users in database:
+2026-08-05 18:41:38,212 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:41:38,600 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:41:38,612 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:41:44,482 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:41:44,484 | INFO | Creating movie 'string' for user 1
+2026-08-05 18:41:44,503 | INFO | Movie created: string
+2026-08-05 18:41:44,504 | INFO | Movie created successfully with id 1
+2026-08-05 18:41:59,139 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:41:59,140 | INFO | Fetching movies for user 1
+2026-08-05 18:41:59,141 | ERROR | Unexpected error while fetching movies: get_movies() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 86, in get_movies
+    movies = movie_service.get_movies(
+        current_user.id
+    )
+TypeError: get_movies() missing 1 required positional argument: 'user_id'
+2026-08-05 18:42:56,930 | INFO | MyMovieList API shutting down
+2026-08-05 18:49:32,889 | INFO | Groq API key loaded successfully.
+2026-08-05 18:49:33,459 | INFO | MyMovieList API started successfully
+2026-08-05 18:49:37,647 | INFO | Root endpoint accessed
+2026-08-05 18:49:45,185 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:49:45,185 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:49:45,196 | INFO | Users in database:
+2026-08-05 18:49:45,197 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:49:45,588 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:49:45,600 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:49:53,663 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:49:53,665 | INFO | Creating movie 'string' for user 1
+2026-08-05 18:49:53,689 | INFO | Movie created: string
+2026-08-05 18:49:53,689 | INFO | Movie created successfully with id 2
+2026-08-05 18:50:09,573 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:50:09,574 | INFO | Fetching movies for user 1
+2026-08-05 18:50:09,578 | INFO | Retrieved 2 movies
+2026-08-05 18:50:49,396 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:50:49,396 | INFO | Login attempt: testingemail@example.com
+2026-08-05 18:50:49,397 | INFO | Users in database:
+2026-08-05 18:50:49,397 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:50:49,398 | WARNING | Login failed. Email not found: testingemail@example.com
+2026-08-05 18:50:49,399 | WARNING | Failed login attempt: testingemail@example.com
+2026-08-05 18:51:02,473 | INFO | Registering user: user@example.com
+2026-08-05 18:51:02,859 | INFO | User registered successfully: user@example.com
+2026-08-05 18:51:02,859 | INFO | User registered successfully: user@example.com
+2026-08-05 18:51:21,914 | INFO | Login attempt: string@gmail.com
+2026-08-05 18:51:21,914 | INFO | Login attempt: string@gmail.com
+2026-08-05 18:51:21,915 | INFO | Users in database:
+2026-08-05 18:51:21,916 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:51:21,916 | INFO | 2 | string | user@example.com
+2026-08-05 18:51:21,917 | WARNING | Login failed. Email not found: string@gmail.com
+2026-08-05 18:51:21,918 | WARNING | Failed login attempt: string@gmail.com
+2026-08-05 18:51:30,531 | INFO | Login attempt: string@gmail.com
+2026-08-05 18:51:30,532 | INFO | Login attempt: string@gmail.com
+2026-08-05 18:51:30,533 | INFO | Users in database:
+2026-08-05 18:51:30,533 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:51:30,533 | INFO | 2 | string | user@example.com
+2026-08-05 18:51:30,535 | WARNING | Login failed. Email not found: string@gmail.com
+2026-08-05 18:51:30,535 | WARNING | Failed login attempt: string@gmail.com
+2026-08-05 18:51:38,844 | INFO | Login attempt: string@example.com
+2026-08-05 18:51:38,844 | INFO | Login attempt: string@example.com
+2026-08-05 18:51:38,846 | INFO | Users in database:
+2026-08-05 18:51:38,846 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:51:38,847 | INFO | 2 | string | user@example.com
+2026-08-05 18:51:38,849 | WARNING | Login failed. Email not found: string@example.com
+2026-08-05 18:51:38,849 | WARNING | Failed login attempt: string@example.com
+2026-08-05 18:51:45,901 | INFO | Login attempt: string@example.com
+2026-08-05 18:51:45,901 | INFO | Login attempt: string@example.com
+2026-08-05 18:51:45,902 | INFO | Users in database:
+2026-08-05 18:51:45,902 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:51:45,902 | INFO | 2 | string | user@example.com
+2026-08-05 18:51:45,905 | WARNING | Login failed. Email not found: string@example.com
+2026-08-05 18:51:45,905 | WARNING | Failed login attempt: string@example.com
+2026-08-05 18:52:00,937 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:00,938 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:00,939 | INFO | Users in database:
+2026-08-05 18:52:00,939 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:52:00,939 | INFO | 2 | string | user@example.com
+2026-08-05 18:52:01,299 | INFO | User authenticated successfully: user@example.com
+2026-08-05 18:52:01,299 | INFO | User logged in successfully: user@example.com
+2026-08-05 18:52:21,334 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:21,335 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:21,336 | INFO | Users in database:
+2026-08-05 18:52:21,336 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:52:21,337 | INFO | 2 | string | user@example.com
+2026-08-05 18:52:21,696 | INFO | User authenticated successfully: user@example.com
+2026-08-05 18:52:21,697 | INFO | User logged in successfully: user@example.com
+2026-08-05 18:52:31,289 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:31,289 | INFO | Login attempt: user@example.com
+2026-08-05 18:52:31,290 | INFO | Users in database:
+2026-08-05 18:52:31,290 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:52:31,291 | INFO | 2 | string | user@example.com
+2026-08-05 18:52:31,642 | INFO | User authenticated successfully: user@example.com
+2026-08-05 18:52:31,642 | INFO | User logged in successfully: user@example.com
+2026-08-05 18:52:36,843 | INFO | Authenticated user user@example.com
+2026-08-05 18:52:36,843 | INFO | Fetching movies for user 2
+2026-08-05 18:52:36,844 | INFO | Retrieved 0 movies
+2026-08-05 18:52:50,990 | INFO | Authenticated user user@example.com
+2026-08-05 18:52:50,991 | INFO | Creating movie 'fhwoi' for user 2
+2026-08-05 18:52:51,005 | INFO | Movie created: fhwoi
+2026-08-05 18:52:51,005 | INFO | Movie created successfully with id 3
+2026-08-05 18:53:01,956 | INFO | Authenticated user user@example.com
+2026-08-05 18:53:01,957 | INFO | Fetching movies for user 2
+2026-08-05 18:53:01,958 | INFO | Retrieved 1 movies
+2026-08-05 18:53:47,939 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:53:47,939 | INFO | Login attempt: taha111@example.com
+2026-08-05 18:53:47,941 | INFO | Users in database:
+2026-08-05 18:53:47,941 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 18:53:47,941 | INFO | 2 | string | user@example.com
+2026-08-05 18:53:48,298 | INFO | User authenticated successfully: taha111@example.com
+2026-08-05 18:53:48,299 | INFO | User logged in successfully: taha111@example.com
+2026-08-05 18:53:54,130 | INFO | Authenticated user taha111@example.com
+2026-08-05 18:53:54,131 | INFO | Fetching movies for user 1
+2026-08-05 18:53:54,132 | INFO | Retrieved 2 movies
+2026-08-05 19:02:43,171 | INFO | MyMovieList API shutting down
+2026-08-05 19:02:45,048 | INFO | Groq API key loaded successfully.
+2026-08-05 19:02:45,665 | INFO | MyMovieList API started successfully
+2026-08-05 19:02:46,535 | INFO | MyMovieList API shutting down

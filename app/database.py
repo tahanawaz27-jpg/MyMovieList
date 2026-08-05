@@ -20,3 +20,4 @@ SessionLocal = sessionmaker(
 
 # Base class for all SQLAlchemy models
 Base = declarative_base()
+print(f"Database URL: {engine.url}")

@@ -1,5 +1,7 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, status, Depends
 
+from app.auth.dependencies import get_current_user
+from app.models.user import User
 from app.schemas.movie import (
     MovieCreate,
     MovieUpdate,
@@ -9,7 +11,15 @@ from app.schemas.recommendation import RecommendationResponse
 from app.services import movie_service
 from app.services.ai_service import recommend_movie
 from app.utils.logger import logger
+from fastapi import Depends
+from sqlalchemy.orm import Session
 
+from app.auth.dependencies import (
+    get_current_user,
+    get_db,
+)
+
+from app.models.user import User
 router = APIRouter(
     prefix="/movies",
     tags=["Movies"],
@@ -23,13 +33,21 @@ router = APIRouter(
     response_model=MovieResponse,
     status_code=status.HTTP_201_CREATED,
 )
-def create_movie(movie: MovieCreate):
+def create_movie(
+    movie: MovieCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
     try:
         logger.info(
-            f"Creating movie: {movie.title}"
+            f"Creating movie '{movie.title}' for user {current_user.id}"
         )
 
-        created_movie = movie_service.create_movie(movie)
+        created_movie = movie_service.create_movie(
+            db,
+            movie,
+            current_user.id,
+)
 
         logger.info(
             f"Movie created successfully with id {created_movie.id}"
@@ -57,13 +75,19 @@ def create_movie(movie: MovieCreate):
     "/",
     response_model=list[MovieResponse],
 )
-def get_movies():
+def get_movies(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
     try:
         logger.info(
-            "Fetching all movies"
+            f"Fetching movies for user {current_user.id}"
         )
 
-        movies = movie_service.get_movies()
+        movies = movie_service.get_movies(
+        db,
+        current_user.id,
+        )
 
         logger.info(
             f"Retrieved {len(movies)} movies"
@@ -86,16 +110,18 @@ def get_movies():
 
 
 # ---------------- AI RECOMMEND ---------------- #
-# Must come BEFORE /{movie_id}
 
 @router.get(
     "/recommend",
     response_model=RecommendationResponse,
 )
-def ai_recommend(title: str):
+def ai_recommend(
+    title: str,
+    current_user: User = Depends(get_current_user),
+):
     try:
         logger.info(
-            f"AI recommendation requested for '{title}'"
+            f"AI recommendation requested by user {current_user.id} for '{title}'"
         )
 
         recommendation = recommend_movie(title)
@@ -128,17 +154,25 @@ def ai_recommend(title: str):
     "/{movie_id}",
     response_model=MovieResponse,
 )
-def get_movie(movie_id: int):
+def get_movie(
+    movie_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
     try:
         logger.info(
-            f"Fetching movie {movie_id}"
+            f"Fetching movie {movie_id} for user {current_user.id}"
         )
 
-        movie = movie_service.get_movie(movie_id)
+        movie = movie_service.get_movie(
+            db,
+            movie_id,
+            current_user.id,
+        )
 
         if movie is None:
             logger.warning(
-                f"Movie {movie_id} not found"
+                f"Movie {movie_id} not found for user {current_user.id}"
             )
 
             raise HTTPException(
@@ -171,20 +205,24 @@ def get_movie(movie_id: int):
 def update_movie(
     movie_id: int,
     movie: MovieUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     try:
         logger.info(
-            f"Updating movie {movie_id}"
+            f"Updating movie {movie_id} for user {current_user.id}"
         )
 
         updated_movie = movie_service.update_movie(
+            db,
             movie_id,
             movie,
+            current_user.id,
         )
 
         if updated_movie is None:
             logger.warning(
-                f"Movie {movie_id} not found"
+                f"Movie {movie_id} not found for user {current_user.id}"
             )
 
             raise HTTPException(
@@ -217,17 +255,25 @@ def update_movie(
 @router.delete(
     "/{movie_id}",
 )
-def delete_movie(movie_id: int):
+def delete_movie(
+    movie_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
     try:
         logger.info(
-            f"Deleting movie {movie_id}"
+            f"Deleting movie {movie_id} for user {current_user.id}"
         )
 
-        movie = movie_service.delete_movie(movie_id)
+        movie = movie_service.delete_movie(
+            db,
+            movie_id,
+            current_user.id,
+        )
 
         if movie is None:
             logger.warning(
-                f"Movie {movie_id} not found"
+                f"Movie {movie_id} not found for user {current_user.id}"
             )
 
             raise HTTPException(
@@ -255,3 +301,55 @@ def delete_movie(movie_id: int):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="An unexpected error occurred while deleting the movie.",
         )
+
+def create_movie(
+    movie: MovieCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):created_movie = movie_service.create_movie(
+    db,
+    movie,
+    current_user.id,
+)
+
+
+def get_movies(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):movies = movie_service.get_movies(
+    db,
+    current_user.id,
+)
+
+def get_movie(
+    movie_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):movie = movie_service.get_movie(
+    db,
+    movie_id,
+    current_user.id,
+)
+
+
+def update_movie(
+    movie_id: int,
+    movie: MovieUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):updated_movie = movie_service.update_movie(
+    db,
+    movie_id,
+    movie,
+    current_user.id,
+)
+
+def delete_movie(
+    movie_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):movie = movie_service.delete_movie(
+    db,
+    movie_id,
+    current_user.id,
+)        
