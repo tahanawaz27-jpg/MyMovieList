@@ -1,3 +1,4 @@
+from app.utils.logger import logger
 from sqlalchemy.orm import Session
 
 from app.models.movie import Movie
@@ -5,6 +6,11 @@ from app.schemas.movie import MovieCreate
 
 
 def create_movie(db: Session, movie: MovieCreate):
+
+    logger.info(
+        f"Saving movie to database: {movie.title}"
+    )
+
     new_movie = Movie(
         title=movie.title,
         director=movie.director,
@@ -17,6 +23,10 @@ def create_movie(db: Session, movie: MovieCreate):
     db.add(new_movie)
     db.commit()
     db.refresh(new_movie)
+
+    logger.info(
+        f"Database save successful. Movie id: {new_movie.id}"
+    )
 
     return new_movie
 
@@ -50,12 +60,28 @@ def update_movie(db: Session, movie_id: int, movie: MovieCreate):
 
 
 def delete_movie(db: Session, movie_id: int):
-    movie = db.query(Movie).filter(Movie.id == movie_id).first()
+
+    logger.info(
+        f"Searching movie id {movie_id} for deletion"
+    )
+
+    movie = db.query(Movie).filter(
+        Movie.id == movie_id
+    ).first()
 
     if movie is None:
+
+        logger.warning(
+            f"Movie id {movie_id} does not exist"
+        )
+
         return None
 
     db.delete(movie)
     db.commit()
+
+    logger.info(
+        f"Movie id {movie_id} deleted from database"
+    )
 
     return movie

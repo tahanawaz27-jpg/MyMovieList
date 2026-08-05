@@ -1,0 +1,13 @@
+2026-08-04 19:42:29,415 | INFO | MyMovieList API started successfully
+2026-08-04 19:42:29,668 | INFO | Root endpoint accessed
+2026-08-04 19:42:41,990 | INFO | Root endpoint accessed
+2026-08-04 19:43:03,814 | INFO | AI recommendation requested for: Inception
+2026-08-04 19:43:05,582 | INFO | AI recommendation generated successfully
+2026-08-04 19:45:41,900 | INFO | MyMovieList API shutting down
+2026-08-05 11:50:34,893 | INFO | MyMovieList API started successfully
+2026-08-05 11:50:39,366 | INFO | Root endpoint accessed
+2026-08-05 11:50:47,949 | INFO | Fetching all movies
+2026-08-05 11:50:47,957 | INFO | Total movies found: 13
+2026-08-05 11:50:49,407 | INFO | Fetching all movies
+2026-08-05 11:50:49,408 | INFO | Total movies found: 13
+2026-08-05 11:51:08,619 | INFO | MyMovieList API shutting down
