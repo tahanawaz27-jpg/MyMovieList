@@ -17,10 +17,12 @@ def login_page(api):
 
         st.subheader("Login")
 
+
         username = st.text_input(
             "Email or Username",
             key="login_username",
         )
+
 
         password = st.text_input(
             "Password",
@@ -31,6 +33,7 @@ def login_page(api):
 
         if st.button("Login"):
 
+
             response = api.login(
                 username,
                 password,
@@ -39,25 +42,45 @@ def login_page(api):
 
             if response.status_code == 200:
 
-                token = response.json()["access_token"]
 
-                # Store JWT token permanently during session
-                api.set_token(token)
-
-                st.success(
-                    "Logged in successfully!"
+                token = response.json().get(
+                    "access_token"
                 )
 
-                st.rerun()
+
+                if token:
+
+                    # Save token in Streamlit session
+                    st.session_state.token = token
+
+                    # Update API object immediately
+                    api.set_token(token)
+
+
+                    st.success(
+                        "Logged in successfully!"
+                    )
+
+
+                    st.rerun()
+
+
+                else:
+
+                    st.error(
+                        "Token not received from server."
+                    )
 
 
             else:
+
 
                 try:
 
                     st.error(
                         response.json()["detail"]
                     )
+
 
                 except Exception:
 
@@ -66,21 +89,26 @@ def login_page(api):
                     )
 
 
+
     # ---------------- REGISTER ---------------- #
 
     with tab2:
 
+
         st.subheader("Register")
+
 
         username = st.text_input(
             "Username",
             key="register_username",
         )
 
+
         email = st.text_input(
             "Email",
             key="register_email",
         )
+
 
         password = st.text_input(
             "Password",
@@ -90,6 +118,7 @@ def login_page(api):
 
 
         if st.button("Register"):
+
 
             response = api.register(
                 {
@@ -102,18 +131,21 @@ def login_page(api):
 
             if response.status_code == 201:
 
+
                 st.success(
-                    "Registration successful!"
+                    "Registration successful! Please login."
                 )
 
 
             else:
+
 
                 try:
 
                     st.error(
                         response.json()["detail"]
                     )
+
 
                 except Exception:
 

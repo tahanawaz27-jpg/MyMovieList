@@ -16844,3 +16844,33 @@ TypeError: get_movies() missing 1 required positional argument: 'user_id'
 2026-08-06 17:43:27,837 | INFO | Fetching movies for user 9
 2026-08-06 17:43:27,838 | INFO | Retrieved 3 movies
 2026-08-06 17:44:23,177 | INFO | MyMovieList API shutting down
+2026-08-06 18:25:24,525 | INFO | Groq API key loaded successfully.
+2026-08-06 18:25:25,135 | INFO | MyMovieList API started successfully
+2026-08-06 18:25:46,893 | INFO | Login attempt: taha1
+2026-08-06 18:25:46,894 | INFO | Login attempt: taha1
+2026-08-06 18:25:47,297 | INFO | User authenticated successfully: taha1@gmail.com
+2026-08-06 18:25:47,311 | INFO | User logged in successfully: taha1@gmail.com
+2026-08-06 18:25:47,382 | INFO | Authenticated user taha1@gmail.com
+2026-08-06 18:25:47,387 | INFO | Fetching movies for user 9
+2026-08-06 18:25:47,393 | INFO | Retrieved 3 movies
+2026-08-06 18:25:59,246 | INFO | Login attempt: taha1
+2026-08-06 18:25:59,246 | INFO | Login attempt: taha1
+2026-08-06 18:25:59,619 | INFO | User authenticated successfully: taha1@gmail.com
+2026-08-06 18:25:59,619 | INFO | User logged in successfully: taha1@gmail.com
+2026-08-06 18:25:59,657 | INFO | Authenticated user taha1@gmail.com
+2026-08-06 18:25:59,658 | INFO | Fetching movies for user 9
+2026-08-06 18:25:59,659 | INFO | Retrieved 3 movies
+2026-08-06 18:26:06,043 | INFO | Authenticated user taha1@gmail.com
+2026-08-06 18:26:06,044 | INFO | Creating movie 'jf' for user 9
+2026-08-06 18:26:06,061 | INFO | Movie created: jf
+2026-08-06 18:26:06,062 | INFO | Movie created successfully with id 15
+2026-08-06 18:28:41,539 | INFO | MyMovieList API shutting down
+2026-08-06 18:28:43,638 | INFO | Groq API key loaded successfully.
+2026-08-06 18:28:44,243 | INFO | MyMovieList API started successfully
+2026-08-06 18:29:03,452 | INFO | MyMovieList API shutting down
+2026-08-06 18:29:05,425 | INFO | Groq API key loaded successfully.
+2026-08-06 18:29:05,993 | INFO | MyMovieList API started successfully
+2026-08-06 18:29:50,972 | INFO | MyMovieList API shutting down
+2026-08-06 18:29:53,112 | INFO | Groq API key loaded successfully.
+2026-08-06 18:29:53,702 | INFO | MyMovieList API started successfully
+2026-08-06 18:29:57,239 | INFO | MyMovieList API shutting down
