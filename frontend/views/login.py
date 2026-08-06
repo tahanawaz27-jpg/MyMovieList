@@ -10,6 +10,7 @@ def login_page(api):
         ]
     )
 
+
     # ---------------- LOGIN ---------------- #
 
     with tab1:
@@ -27,6 +28,7 @@ def login_page(api):
             key="login_password",
         )
 
+
         if st.button("Login"):
 
             response = api.login(
@@ -34,11 +36,13 @@ def login_page(api):
                 password,
             )
 
+
             if response.status_code == 200:
 
                 token = response.json()["access_token"]
 
-                st.session_state.token = token
+                # Store JWT token permanently during session
+                api.set_token(token)
 
                 st.success(
                     "Logged in successfully!"
@@ -46,14 +50,21 @@ def login_page(api):
 
                 st.rerun()
 
+
             else:
 
                 try:
+
                     st.error(
                         response.json()["detail"]
                     )
+
                 except Exception:
-                    st.error("Login failed.")
+
+                    st.error(
+                        "Login failed."
+                    )
+
 
     # ---------------- REGISTER ---------------- #
 
@@ -77,6 +88,7 @@ def login_page(api):
             key="register_password",
         )
 
+
         if st.button("Register"):
 
             response = api.register(
@@ -87,17 +99,24 @@ def login_page(api):
                 }
             )
 
+
             if response.status_code == 201:
 
                 st.success(
                     "Registration successful!"
                 )
 
+
             else:
 
                 try:
+
                     st.error(
                         response.json()["detail"]
                     )
+
                 except Exception:
-                    st.error("Registration failed.")
+
+                    st.error(
+                        "Registration failed."
+                    )
