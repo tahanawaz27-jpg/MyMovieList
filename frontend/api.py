@@ -1,7 +1,12 @@
 import requests
 
 # Change this when deploying
-BASE_URL = "http://127.0.0.1:8000"
+import os
+
+BASE_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+)
 
 
 class MovieAPI:
