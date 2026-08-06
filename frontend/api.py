@@ -122,99 +122,44 @@ class MovieAPI:
 
     def get_movies(self):
 
-        try:
-
-            return requests.get(
-                f"{BASE_URL}/movies",
-                headers=self.headers,
-                timeout=REQUEST_TIMEOUT,
-            )
-
-
-        except requests.exceptions.RequestException as e:
-
-            self.request_error(e)
-
-            return None
-
+        return requests.get(
+            f"{BASE_URL}/movies/",
+            headers=self.headers,
+        )
 
 
     def get_movie(self, movie_id):
 
-        try:
-
-            return requests.get(
-                f"{BASE_URL}/movies/{movie_id}",
-                headers=self.headers,
-                timeout=REQUEST_TIMEOUT,
-            )
-
-
-        except requests.exceptions.RequestException as e:
-
-            self.request_error(e)
-
-            return None
-
+        return requests.get(
+            f"{BASE_URL}/movies/{movie_id}",
+            headers=self.headers,
+        )
 
 
     def create_movie(self, movie):
 
-        try:
-
-            return requests.post(
-                f"{BASE_URL}/movies",
-                json=movie,
-                headers=self.headers,
-                timeout=REQUEST_TIMEOUT,
-            )
-
-
-        except requests.exceptions.RequestException as e:
-
-            self.request_error(e)
-
-            return None
-
+        return requests.post(
+            f"{BASE_URL}/movies/",
+            json=movie,
+            headers=self.headers,
+        )
 
 
     def update_movie(self, movie_id, movie):
 
-        try:
-
-            return requests.patch(
-                f"{BASE_URL}/movies/{movie_id}",
-                json=movie,
-                headers=self.headers,
-                timeout=REQUEST_TIMEOUT,
-            )
-
-
-        except requests.exceptions.RequestException as e:
-
-            self.request_error(e)
-
-            return None
-
+        return requests.patch(
+            f"{BASE_URL}/movies/{movie_id}",
+            json=movie,
+            headers=self.headers,
+        )
 
 
     def delete_movie(self, movie_id):
 
-        try:
-
-            return requests.delete(
-                f"{BASE_URL}/movies/{movie_id}",
-                headers=self.headers,
-                timeout=REQUEST_TIMEOUT,
-            )
-
-
-        except requests.exceptions.RequestException as e:
-
-            self.request_error(e)
-
-            return None
-
+        return requests.delete(
+            f"{BASE_URL}/movies/{movie_id}",
+            headers=self.headers,
+        )
 
 
     # ---------------- AI ---------------- #
