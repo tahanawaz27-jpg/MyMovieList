@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
-
+from sqlalchemy import or_
 from app.models.user import User
 from app.schemas.user import (
     UserCreate,
@@ -69,39 +69,53 @@ def create_user(
 
         raise
 
+from sqlalchemy import or_
 
 
 def authenticate_user(
     db: Session,
-    email: str,
+    username_or_email: str,
     password: str,
 ):
     try:
-        logger.info(f"Login attempt: {email}")
-
-        users = db.query(User).all()
-
-        logger.info("Users in database:")
-        for u in users:
-            logger.info(f"{u.id} | {u.username} | {u.email}")
+        logger.info(
+            f"Login attempt: {username_or_email}"
+        )
 
         user = (
             db.query(User)
-            .filter(User.email == email)
+            .filter(
+                or_(
+                    User.email == username_or_email,
+                    User.username == username_or_email,
+                )
+            )
             .first()
         )
 
         if user is None:
-            logger.warning(f"Login failed. Email not found: {email}")
+            logger.warning(
+                f"Login failed. User not found: {username_or_email}"
+            )
             return None
 
-        if not verify_password(password, user.hashed_password):
-            logger.warning(f"Incorrect password for {email}")
+        if not verify_password(
+            password,
+            user.hashed_password,
+        ):
+            logger.warning(
+                f"Incorrect password for {username_or_email}"
+            )
             return None
 
-        logger.info(f"User authenticated successfully: {email}")
+        logger.info(
+            f"User authenticated successfully: {user.email}"
+        )
+
         return user
 
     except SQLAlchemyError as e:
-        logger.exception(f"Database error during login: {e}")
+        logger.exception(
+            f"Database error during login: {e}"
+        )
         raise

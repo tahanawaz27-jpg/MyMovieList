@@ -861,3 +861,54 @@ TypeError: get_movies() missing 1 required positional argument: 'user_id'
 2026-08-05 19:02:45,048 | INFO | Groq API key loaded successfully.
 2026-08-05 19:02:45,665 | INFO | MyMovieList API started successfully
 2026-08-05 19:02:46,535 | INFO | MyMovieList API shutting down
+2026-08-05 19:25:12,202 | INFO | Groq API key loaded successfully.
+2026-08-05 19:25:12,644 | INFO | MyMovieList API started successfully
+2026-08-05 19:25:15,901 | INFO | Root endpoint accessed
+2026-08-05 19:25:21,672 | INFO | Login attempt: user@example.com
+2026-08-05 19:25:21,672 | INFO | Login attempt: user@example.com
+2026-08-05 19:25:21,681 | INFO | Users in database:
+2026-08-05 19:25:21,681 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 19:25:21,682 | INFO | 2 | string | user@example.com
+2026-08-05 19:25:22,066 | INFO | User authenticated successfully: user@example.com
+2026-08-05 19:25:22,075 | INFO | User logged in successfully: user@example.com
+2026-08-05 20:08:41,974 | INFO | Groq API key loaded successfully.
+2026-08-05 20:08:42,611 | INFO | MyMovieList API started successfully
+2026-08-05 20:08:44,027 | INFO | Root endpoint accessed
+2026-08-05 20:08:58,913 | INFO | Login attempt: user@example.com
+2026-08-05 20:08:58,913 | INFO | Login attempt: user@example.com
+2026-08-05 20:08:58,922 | INFO | Users in database:
+2026-08-05 20:08:58,922 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 20:08:58,922 | INFO | 2 | string | user@example.com
+2026-08-05 20:08:59,322 | INFO | User authenticated successfully: user@example.com
+2026-08-05 20:08:59,353 | INFO | User logged in successfully: user@example.com
+2026-08-05 20:09:07,929 | INFO | Registering user: user@example.com
+2026-08-05 20:09:07,936 | WARNING | Registration failed. Email already exists: user@example.com
+2026-08-05 20:09:07,936 | WARNING | Registration failed. Email already exists: user@example.com
+2026-08-05 20:09:14,901 | INFO | Registering user: user2345@example.com
+2026-08-05 20:09:14,904 | WARNING | Registration failed. Username already exists: string
+2026-08-05 20:09:14,904 | WARNING | Registration failed. Username already exists: string
+2026-08-05 20:09:21,096 | INFO | Registering user: user2345@example.com
+2026-08-05 20:09:21,476 | INFO | User registered successfully: user2345@example.com
+2026-08-05 20:09:21,476 | INFO | User registered successfully: user2345@example.com
+2026-08-05 20:10:00,499 | INFO | Login attempt: user2345@example.com
+2026-08-05 20:10:00,499 | INFO | Login attempt: user2345@example.com
+2026-08-05 20:10:00,501 | INFO | Users in database:
+2026-08-05 20:10:00,501 | INFO | 1 | taha11 | taha111@example.com
+2026-08-05 20:10:00,501 | INFO | 2 | string | user@example.com
+2026-08-05 20:10:00,501 | INFO | 3 | string124 | user2345@example.com
+2026-08-05 20:10:00,863 | INFO | User authenticated successfully: user2345@example.com
+2026-08-05 20:10:00,864 | INFO | User logged in successfully: user2345@example.com
+2026-08-06 15:49:09,159 | INFO | Groq API key loaded successfully.
+2026-08-06 15:49:09,789 | INFO | MyMovieList API started successfully
+2026-08-06 15:49:44,795 | INFO | Registering user: tahanawaz325@example.com
+2026-08-06 15:49:45,222 | INFO | User registered successfully: tahanawaz325@example.com
+2026-08-06 15:49:45,222 | INFO | User registered successfully: tahanawaz325@example.com
+2026-08-06 15:50:03,600 | INFO | Login attempt: taha_nawaz
+2026-08-06 15:50:03,600 | INFO | Login attempt: taha_nawaz
+2026-08-06 15:50:03,963 | INFO | User authenticated successfully: tahanawaz325@example.com
+2026-08-06 15:50:03,986 | INFO | User logged in successfully: tahanawaz325@example.com
+2026-08-06 15:50:44,071 | INFO | Login attempt: taha_nawaz
+2026-08-06 15:50:44,071 | INFO | Login attempt: taha_nawaz
+2026-08-06 15:50:44,422 | INFO | User authenticated successfully: tahanawaz325@example.com
+2026-08-06 15:50:44,422 | INFO | User logged in successfully: tahanawaz325@example.com
+2026-08-06 15:51:05,399 | INFO | MyMovieList API shutting down
