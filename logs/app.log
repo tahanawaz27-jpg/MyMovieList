@@ -17439,3 +17439,66 @@ AttributeError: 'MovieCreate' object has no attribute 'release_year'
 2026-08-07 19:14:46,527 | INFO | Registering user: tahanawaz0@gmail.com
 2026-08-07 19:14:46,886 | INFO | User registered successfully: tahanawaz0@gmail.com
 2026-08-07 19:14:46,886 | INFO | User registered successfully: tahanawaz0@gmail.com
+2026-08-07 19:29:06,729 | INFO | MyMovieList API started successfully
+2026-08-07 19:29:18,893 | INFO | Login attempt: test1
+2026-08-07 19:29:18,894 | INFO | Login attempt: test1
+2026-08-07 19:29:19,293 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:29:19,302 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:29:19,346 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:29:19,346 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:29:19,349 | INFO | Retrieved 5 movies
+2026-08-07 19:29:28,704 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:29:28,705 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:29:28,706 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:29:32,082 | INFO | Recommendation generated successfully
+2026-08-07 19:29:34,702 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:29:34,703 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:29:34,705 | INFO | Retrieved 5 movies
+2026-08-07 19:30:03,454 | INFO | MyMovieList API shutting down
+2026-08-07 19:30:05,298 | INFO | MyMovieList API started successfully
+2026-08-07 19:30:44,485 | INFO | MyMovieList API shutting down
+2026-08-07 19:30:46,222 | INFO | MyMovieList API started successfully
+2026-08-07 19:31:20,602 | INFO | MyMovieList API shutting down
+2026-08-07 19:31:22,270 | INFO | MyMovieList API started successfully
+2026-08-07 19:31:32,622 | INFO | Login attempt: test1
+2026-08-07 19:31:32,623 | INFO | Login attempt: test1
+2026-08-07 19:31:33,021 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:31:33,032 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:31:33,072 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:33,073 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:31:33,075 | INFO | Retrieved 5 movies
+2026-08-07 19:31:47,708 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:47,709 | INFO | Creating movie 'newn' for user 11
+2026-08-07 19:31:47,724 | INFO | Movie created: newn
+2026-08-07 19:31:47,725 | INFO | Movie created successfully with id 21
+2026-08-07 19:31:49,204 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:49,205 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:31:49,206 | INFO | Retrieved 6 movies
+2026-08-07 19:31:54,268 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:54,269 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:31:54,270 | INFO | Retrieved 6 movies
+2026-08-07 19:31:54,303 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:54,304 | INFO | Deleting movie 21 for user 11
+2026-08-07 19:31:54,316 | INFO | Movie 21 deleted successfully
+2026-08-07 19:31:54,363 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:54,364 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:31:54,364 | INFO | Retrieved 5 movies
+2026-08-07 19:31:58,715 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:31:58,716 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:31:58,716 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:32:00,057 | INFO | Recommendation generated successfully
+2026-08-07 19:32:08,407 | INFO | Login attempt: tets1
+2026-08-07 19:32:08,407 | INFO | Login attempt: tets1
+2026-08-07 19:32:08,409 | WARNING | Login failed. User not found: tets1
+2026-08-07 19:32:08,409 | WARNING | Failed login attempt: tets1
+2026-08-07 19:32:14,036 | INFO | Login attempt: test1
+2026-08-07 19:32:14,036 | INFO | Login attempt: test1
+2026-08-07 19:32:14,390 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:32:14,390 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:32:14,429 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:32:14,430 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:32:14,431 | INFO | Retrieved 5 movies
+2026-08-07 19:32:18,422 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:32:18,423 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:32:18,423 | INFO | Retrieved 5 movies
+2026-08-07 19:32:32,087 | INFO | MyMovieList API shutting down
