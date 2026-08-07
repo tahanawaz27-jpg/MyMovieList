@@ -1,25 +1,20 @@
-from fastapi import APIRouter, HTTPException, status, Depends
+from typing import Optional
 
-from app.auth.dependencies import get_current_user
+from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy.orm import Session
+
+from app.auth.dependencies import get_current_user, get_db
 from app.models.user import User
 from app.schemas.movie import (
     MovieCreate,
-    MovieUpdate,
     MovieResponse,
+    MovieUpdate,
 )
 from app.schemas.recommendation import RecommendationResponse
 from app.services import movie_service
 from app.services.ai_service import recommend_movie
 from app.utils.logger import logger
-from fastapi import Depends
-from sqlalchemy.orm import Session
 
-from app.auth.dependencies import (
-    get_current_user,
-    get_db,
-)
-
-from app.models.user import User
 router = APIRouter(
     prefix="/movies",
     tags=["Movies"],
@@ -47,7 +42,7 @@ def create_movie(
             db,
             movie,
             current_user.id,
-)
+        )
 
         logger.info(
             f"Movie created successfully with id {created_movie.id}"
@@ -69,24 +64,26 @@ def create_movie(
         )
 
 
-# ---------------- GET ALL ---------------- #
+# ---------------- GET ALL / SEARCH ---------------- #
 
 @router.get(
     "/",
     response_model=list[MovieResponse],
 )
 def get_movies(
+    search: Optional[str] = Query(None, description="Search query for filtering movies"),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
     try:
         logger.info(
-            f"Fetching movies for user {current_user.id}"
+            f"Fetching movies for user {current_user.id} with search='{search}'"
         )
 
         movies = movie_service.get_movies(
-        db,
-        current_user.id,
+            db=db,
+            user_id=current_user.id,
+            search=search,
         )
 
         logger.info(
@@ -124,29 +121,28 @@ def ai_recommend(
             f"AI recommendation requested by user {current_user.id} for '{title}'"
         )
 
-        recommendation = recommend_movie(title)
+        recommendations = recommend_movie(title)
 
-        logger.info(
-            "Recommendation generated successfully"
-        )
+        if not recommendations:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Unable to generate recommendations.",
+            )
 
-        return {
-            "recommendation": recommendation
-        }
+        logger.info("Recommendation generated successfully")
+
+        return {"recommendations": recommendations}
 
     except HTTPException:
         raise
 
     except Exception as e:
-        logger.exception(
-            f"Recommendation error: {e}"
-        )
+        logger.exception(f"Recommendation error: {e}")
 
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Unable to generate recommendation.",
         )
-
 
 # ---------------- GET ONE ---------------- #
 
@@ -302,54 +298,16 @@ def delete_movie(
             detail="An unexpected error occurred while deleting the movie.",
         )
 
-def create_movie(
-    movie: MovieCreate,
-    db: Session = Depends(get_db),
+@router.get("/recommend")
+def ai_recommend(
+    title: str,
     current_user: User = Depends(get_current_user),
-):created_movie = movie_service.create_movie(
-    db,
-    movie,
-    current_user.id,
-)
+):
+    recommendations = recommend_movie(title)
+    if not recommendations:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Unable to generate recommendations at this time.",
+        )
 
-
-def get_movies(
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):movies = movie_service.get_movies(
-    db,
-    current_user.id,
-)
-
-def get_movie(
-    movie_id: int,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):movie = movie_service.get_movie(
-    db,
-    movie_id,
-    current_user.id,
-)
-
-
-def update_movie(
-    movie_id: int,
-    movie: MovieUpdate,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):updated_movie = movie_service.update_movie(
-    db,
-    movie_id,
-    movie,
-    current_user.id,
-)
-
-def delete_movie(
-    movie_id: int,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):movie = movie_service.delete_movie(
-    db,
-    movie_id,
-    current_user.id,
-)        
+    return {"recommendations": recommendations}    

@@ -14,7 +14,7 @@ def add_movie_page(api):
     year = st.number_input(
         "Release Year",
         min_value=1888,
-        max_value=2100,
+        max_value=2026,
         value=2025,
     )
 

@@ -16874,3 +16874,568 @@ TypeError: get_movies() missing 1 required positional argument: 'user_id'
 2026-08-06 18:29:53,112 | INFO | Groq API key loaded successfully.
 2026-08-06 18:29:53,702 | INFO | MyMovieList API started successfully
 2026-08-06 18:29:57,239 | INFO | MyMovieList API shutting down
+2026-08-07 17:10:33,476 | INFO | Groq API key loaded successfully.
+2026-08-07 17:10:34,088 | INFO | MyMovieList API started successfully
+2026-08-07 17:11:06,100 | INFO | Registering user: test@gmail.com
+2026-08-07 17:11:06,535 | INFO | User registered successfully: test@gmail.com
+2026-08-07 17:11:06,535 | INFO | User registered successfully: test@gmail.com
+2026-08-07 17:11:16,080 | INFO | Login attempt: test1
+2026-08-07 17:11:16,081 | INFO | Login attempt: test1
+2026-08-07 17:11:16,445 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:11:16,456 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:11:16,501 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:11:16,502 | INFO | Fetching movies for user 11
+2026-08-07 17:11:16,505 | INFO | Retrieved 0 movies
+2026-08-07 17:11:19,280 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:11:19,280 | INFO | Fetching movies for user 11
+2026-08-07 17:11:19,282 | INFO | Retrieved 0 movies
+2026-08-07 17:11:23,481 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:11:23,482 | INFO | Fetching movies for user 11
+2026-08-07 17:11:23,483 | INFO | Retrieved 0 movies
+2026-08-07 17:12:28,387 | INFO | MyMovieList API shutting down
+2026-08-07 17:12:30,478 | INFO | Groq API key loaded successfully.
+2026-08-07 17:12:31,111 | INFO | MyMovieList API started successfully
+2026-08-07 17:13:52,571 | INFO | MyMovieList API shutting down
+2026-08-07 17:13:54,370 | INFO | Groq API key loaded successfully.
+2026-08-07 17:13:54,962 | INFO | MyMovieList API started successfully
+2026-08-07 17:14:18,756 | INFO | MyMovieList API shutting down
+2026-08-07 17:14:20,574 | INFO | Groq API key loaded successfully.
+2026-08-07 17:14:21,123 | INFO | MyMovieList API started successfully
+2026-08-07 17:14:34,311 | INFO | Groq API key loaded successfully.
+2026-08-07 17:14:34,890 | INFO | MyMovieList API started successfully
+2026-08-07 17:14:55,080 | INFO | Login attempt: test1
+2026-08-07 17:14:55,080 | INFO | Login attempt: test1
+2026-08-07 17:14:55,477 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:14:55,487 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:14:55,541 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:14:55,542 | INFO | Fetching movies for user 11
+2026-08-07 17:14:55,545 | INFO | Retrieved 0 movies
+2026-08-07 17:15:01,015 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:15:01,016 | INFO | Fetching movies for user 11
+2026-08-07 17:15:01,018 | INFO | Retrieved 0 movies
+2026-08-07 17:15:03,602 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:15:03,603 | INFO | Fetching movies for user 11
+2026-08-07 17:15:03,605 | INFO | Retrieved 0 movies
+2026-08-07 17:15:04,371 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:15:04,372 | INFO | Fetching movies for user 11
+2026-08-07 17:15:04,373 | INFO | Retrieved 0 movies
+2026-08-07 17:15:06,154 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:15:06,155 | INFO | Fetching movies for user 11
+2026-08-07 17:15:06,156 | INFO | Retrieved 0 movies
+2026-08-07 17:15:08,198 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:15:08,199 | INFO | Fetching movies for user 11
+2026-08-07 17:15:08,199 | INFO | Retrieved 0 movies
+2026-08-07 17:16:09,497 | INFO | MyMovieList API shutting down
+2026-08-07 17:16:11,523 | INFO | Groq API key loaded successfully.
+2026-08-07 17:16:12,258 | INFO | MyMovieList API started successfully
+2026-08-07 17:16:19,783 | INFO | MyMovieList API shutting down
+2026-08-07 17:16:21,831 | INFO | Groq API key loaded successfully.
+2026-08-07 17:16:22,495 | INFO | MyMovieList API started successfully
+2026-08-07 17:16:28,662 | INFO | MyMovieList API shutting down
+2026-08-07 17:16:31,738 | INFO | Groq API key loaded successfully.
+2026-08-07 17:16:32,358 | INFO | MyMovieList API started successfully
+2026-08-07 17:16:36,068 | INFO | MyMovieList API shutting down
+2026-08-07 17:16:40,619 | INFO | Groq API key loaded successfully.
+2026-08-07 17:16:41,179 | INFO | MyMovieList API started successfully
+2026-08-07 17:16:50,087 | INFO | Login attempt: test
+2026-08-07 17:16:50,088 | INFO | Login attempt: test
+2026-08-07 17:16:50,099 | WARNING | Login failed. User not found: test
+2026-08-07 17:16:50,099 | WARNING | Failed login attempt: test
+2026-08-07 17:16:53,005 | INFO | Login attempt: test1
+2026-08-07 17:16:53,006 | INFO | Login attempt: test1
+2026-08-07 17:16:53,411 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:16:53,424 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:16:53,508 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:16:53,509 | INFO | Fetching movies for user 11
+2026-08-07 17:16:53,513 | INFO | Retrieved 0 movies
+2026-08-07 17:16:57,298 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:16:57,299 | INFO | Fetching movies for user 11
+2026-08-07 17:16:57,300 | INFO | Retrieved 0 movies
+2026-08-07 17:17:02,567 | INFO | MyMovieList API shutting down
+2026-08-07 17:21:22,376 | INFO | Groq API key loaded successfully.
+2026-08-07 17:21:22,945 | INFO | MyMovieList API started successfully
+2026-08-07 17:22:12,440 | INFO | Login attempt: test1
+2026-08-07 17:22:12,441 | INFO | Login attempt: test1
+2026-08-07 17:22:12,833 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:22:12,844 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:22:12,896 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:12,897 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:12,897 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:29,043 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:29,051 | INFO | Creating movie 'new  movie' for user 11
+2026-08-07 17:22:29,068 | INFO | Movie created: new  movie
+2026-08-07 17:22:29,068 | INFO | Movie created successfully with id 16
+2026-08-07 17:22:30,471 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:30,473 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:30,473 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:32,245 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:32,245 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:32,246 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:33,223 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:33,224 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:33,224 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:33,431 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:33,432 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:33,432 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:33,585 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:33,586 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:33,586 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:42,362 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:42,369 | INFO | Creating movie 'lfn' for user 11
+2026-08-07 17:22:42,377 | INFO | Movie created: lfn
+2026-08-07 17:22:42,377 | INFO | Movie created successfully with id 17
+2026-08-07 17:22:43,580 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:43,581 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:43,582 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:44,626 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:44,627 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:44,627 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:44,794 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:44,795 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:44,796 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:22:45,789 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:22:45,790 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:22:45,790 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:24:04,347 | INFO | MyMovieList API shutting down
+2026-08-07 17:24:12,179 | INFO | Groq API key loaded successfully.
+2026-08-07 17:24:12,805 | INFO | MyMovieList API started successfully
+2026-08-07 17:24:24,077 | INFO | Login attempt: test1
+2026-08-07 17:24:24,077 | INFO | Login attempt: test1
+2026-08-07 17:24:24,490 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:24:24,501 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:24:24,543 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:24:24,544 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:24:24,544 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:24:33,342 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:24:33,343 | INFO | Creating movie 'lfhhlif' for user 11
+2026-08-07 17:24:33,367 | INFO | Movie created: lfhhlif
+2026-08-07 17:24:33,367 | INFO | Movie created successfully with id 18
+2026-08-07 17:24:34,446 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:24:34,447 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:24:34,447 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:24:35,840 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:24:35,841 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:24:35,841 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:24:36,156 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:24:36,157 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:24:36,158 | ERROR | Unexpected error while fetching movies: get_movies() got an unexpected keyword argument 'search'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 83, in get_movies
+    movies = movie_service.get_movies(
+        db=db,
+        user_id=current_user.id,
+        search=search,
+    )
+TypeError: get_movies() got an unexpected keyword argument 'search'
+2026-08-07 17:26:16,462 | INFO | MyMovieList API shutting down
+2026-08-07 17:26:18,334 | INFO | Groq API key loaded successfully.
+2026-08-07 17:26:18,884 | INFO | MyMovieList API started successfully
+2026-08-07 17:26:28,963 | INFO | Login attempt: test1
+2026-08-07 17:26:28,964 | INFO | Login attempt: test1
+2026-08-07 17:26:29,373 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 17:26:29,382 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 17:26:29,430 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:29,431 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:26:29,434 | INFO | Retrieved 3 movies
+2026-08-07 17:26:34,791 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:34,792 | INFO | Fetching movies for user 11 with search='lfn'
+2026-08-07 17:26:34,801 | INFO | Retrieved 1 movies
+2026-08-07 17:26:37,784 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:37,785 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:26:37,786 | INFO | Retrieved 3 movies
+2026-08-07 17:26:47,863 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:47,864 | INFO | Creating movie 'title new ' for user 11
+2026-08-07 17:26:47,882 | INFO | Movie created: title new 
+2026-08-07 17:26:47,882 | INFO | Movie created successfully with id 19
+2026-08-07 17:26:48,747 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:48,749 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:26:48,750 | INFO | Retrieved 4 movies
+2026-08-07 17:26:50,034 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:50,035 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:26:50,036 | INFO | Retrieved 4 movies
+2026-08-07 17:26:53,261 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:53,262 | INFO | Fetching movies for user 11 with search='title new'
+2026-08-07 17:26:53,263 | INFO | Retrieved 1 movies
+2026-08-07 17:26:55,884 | INFO | Authenticated user test@gmail.com
+2026-08-07 17:26:55,886 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 17:26:55,887 | INFO | Retrieved 4 movies
+2026-08-07 17:27:00,147 | INFO | MyMovieList API shutting down
+2026-08-07 18:32:31,288 | INFO | Groq API key loaded successfully.
+2026-08-07 18:32:31,702 | INFO | MyMovieList API started successfully
+2026-08-07 18:32:48,487 | INFO | Login attempt: test1
+2026-08-07 18:32:48,487 | INFO | Login attempt: test1
+2026-08-07 18:32:48,876 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:32:48,885 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:32:48,924 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:32:48,925 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:32:48,928 | INFO | Retrieved 4 movies
+2026-08-07 18:32:55,738 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:32:55,742 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:32:55,743 | INFO | Retrieved 4 movies
+2026-08-07 18:33:04,525 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:33:04,526 | INFO | Fetching movies for user 11 with search='tile '
+2026-08-07 18:33:04,528 | INFO | Retrieved 0 movies
+2026-08-07 18:33:07,361 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:33:07,362 | INFO | Fetching movies for user 11 with search='title'
+2026-08-07 18:33:07,364 | INFO | Retrieved 1 movies
+2026-08-07 18:33:14,907 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:33:14,908 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 18:33:14,908 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 18:33:16,701 | INFO | Successfully generated 3 recommendations for 'inception'
+2026-08-07 18:33:16,701 | INFO | Recommendation generated successfully
+2026-08-07 18:33:20,394 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:33:20,395 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 18:33:20,395 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 18:33:21,898 | INFO | Successfully generated 3 recommendations for 'inception'
+2026-08-07 18:33:21,898 | INFO | Recommendation generated successfully
+2026-08-07 18:37:42,261 | INFO | MyMovieList API shutting down
+2026-08-07 18:41:45,473 | INFO | MyMovieList API started successfully
+2026-08-07 18:42:09,473 | INFO | Login attempt: test1
+2026-08-07 18:42:09,473 | INFO | Login attempt: test1
+2026-08-07 18:42:09,873 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:42:09,884 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:42:09,940 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:42:09,941 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:42:09,944 | INFO | Retrieved 4 movies
+2026-08-07 18:45:09,786 | INFO | MyMovieList API shutting down
+2026-08-07 18:50:24,766 | INFO | MyMovieList API started successfully
+2026-08-07 18:50:31,149 | INFO | MyMovieList API shutting down
+2026-08-07 18:50:33,069 | INFO | MyMovieList API started successfully
+2026-08-07 18:50:36,035 | INFO | MyMovieList API shutting down
+2026-08-07 18:50:40,965 | INFO | MyMovieList API started successfully
+2026-08-07 18:50:52,904 | INFO | Login attempt: test1
+2026-08-07 18:50:52,904 | INFO | Login attempt: test1
+2026-08-07 18:50:53,306 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:50:53,317 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:50:53,378 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:50:53,378 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:50:53,381 | INFO | Retrieved 4 movies
+2026-08-07 18:50:59,075 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:50:59,076 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:50:59,077 | INFO | Retrieved 4 movies
+2026-08-07 18:51:05,083 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:51:05,084 | INFO | Creating movie 'lkfjj;' for user 11
+2026-08-07 18:51:05,084 | ERROR | Unexpected error while creating movie: 'MovieCreate' object has no attribute 'director'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 42, in create_movie
+    created_movie = movie_service.create_movie(
+        db,
+        movie,
+        current_user.id,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\movie_service.py", line 19, in create_movie
+    director=movie.director,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\pydantic\main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'MovieCreate' object has no attribute 'director'
+2026-08-07 18:51:09,453 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:51:09,455 | INFO | Creating movie 'lkfjj;' for user 11
+2026-08-07 18:51:09,456 | ERROR | Unexpected error while creating movie: 'MovieCreate' object has no attribute 'director'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 42, in create_movie
+    created_movie = movie_service.create_movie(
+        db,
+        movie,
+        current_user.id,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\movie_service.py", line 19, in create_movie
+    director=movie.director,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\pydantic\main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'MovieCreate' object has no attribute 'director'
+2026-08-07 18:51:23,570 | INFO | MyMovieList API shutting down
+2026-08-07 18:51:25,645 | INFO | MyMovieList API started successfully
+2026-08-07 18:51:31,503 | INFO | MyMovieList API shutting down
+2026-08-07 18:53:55,892 | INFO | MyMovieList API started successfully
+2026-08-07 18:53:55,930 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:53:55,931 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:53:55,932 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:53:55,932 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:53:55,934 | INFO | Retrieved 4 movies
+2026-08-07 18:53:55,936 | INFO | Retrieved 4 movies
+2026-08-07 18:54:07,568 | INFO | MyMovieList API shutting down
+2026-08-07 18:54:45,004 | INFO | MyMovieList API started successfully
+2026-08-07 18:55:02,589 | INFO | Login attempt: test1
+2026-08-07 18:55:02,589 | INFO | Login attempt: test1
+2026-08-07 18:55:02,977 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:55:03,106 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:55:03,174 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:55:03,175 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:55:03,177 | INFO | Retrieved 4 movies
+2026-08-07 18:55:14,179 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:55:14,179 | INFO | Creating movie 'ljfii' for user 11
+2026-08-07 18:55:14,179 | ERROR | Unexpected error while creating movie: 'MovieCreate' object has no attribute 'director'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 41, in create_movie
+    created_movie = movie_service.create_movie(
+        db,
+        movie,
+        current_user.id,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\movie_service.py", line 19, in create_movie
+    director=movie.director,
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\pydantic\main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'MovieCreate' object has no attribute 'director'
+2026-08-07 18:56:04,689 | INFO | MyMovieList API shutting down
+2026-08-07 18:56:06,624 | INFO | MyMovieList API started successfully
+2026-08-07 18:56:19,452 | INFO | Login attempt: test1
+2026-08-07 18:56:19,453 | INFO | Login attempt: test1
+2026-08-07 18:56:19,854 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:56:19,864 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:56:19,915 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:56:19,916 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:56:19,919 | INFO | Retrieved 4 movies
+2026-08-07 18:56:29,433 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:56:29,434 | INFO | Creating movie 'lfjiji' for user 11
+2026-08-07 18:56:29,434 | ERROR | Unexpected error while creating movie: 'MovieCreate' object has no attribute 'release_year'
+Traceback (most recent call last):
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\routers\movie.py", line 41, in create_movie
+    created_movie = movie_service.create_movie(
+        db,
+        movie,
+        current_user.id,
+    )
+  File "C:\Users\Hp\fastapi-project\MyMovieList\app\services\movie_service.py", line 21, in create_movie
+    release_year=movie.release_year,
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hp\fastapi-project\MyMovieList\.venv\Lib\site-packages\pydantic\main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'MovieCreate' object has no attribute 'release_year'
+2026-08-07 18:57:36,525 | INFO | MyMovieList API shutting down
+2026-08-07 18:57:38,671 | INFO | MyMovieList API started successfully
+2026-08-07 18:58:05,748 | INFO | MyMovieList API shutting down
+2026-08-07 18:58:07,466 | INFO | MyMovieList API started successfully
+2026-08-07 18:58:07,569 | INFO | MyMovieList API shutting down
+2026-08-07 18:58:18,249 | INFO | MyMovieList API started successfully
+2026-08-07 18:58:27,188 | INFO | Login attempt: test1
+2026-08-07 18:58:27,188 | INFO | Login attempt: test1
+2026-08-07 18:58:27,581 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 18:58:27,592 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 18:58:27,649 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:58:27,650 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:58:27,653 | INFO | Retrieved 4 movies
+2026-08-07 18:58:38,415 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:58:38,415 | INFO | Creating movie 'newafter' for user 11
+2026-08-07 18:58:38,428 | INFO | Movie created: newafter
+2026-08-07 18:58:38,430 | INFO | Movie created successfully with id 20
+2026-08-07 18:58:39,834 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:58:39,842 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:58:39,848 | INFO | Retrieved 5 movies
+2026-08-07 18:58:43,743 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:58:43,745 | INFO | Fetching movies for user 11 with search='newafter'
+2026-08-07 18:58:43,749 | INFO | Retrieved 1 movies
+2026-08-07 18:58:57,674 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:58:57,676 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:58:57,677 | INFO | Retrieved 5 movies
+2026-08-07 18:59:02,405 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:02,406 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:02,407 | INFO | Retrieved 5 movies
+2026-08-07 18:59:02,436 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:02,437 | INFO | Deleting movie 20 for user 11
+2026-08-07 18:59:02,446 | INFO | Movie 20 deleted successfully
+2026-08-07 18:59:02,501 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:02,501 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:02,502 | INFO | Retrieved 4 movies
+2026-08-07 18:59:04,911 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:04,911 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:04,912 | INFO | Retrieved 4 movies
+2026-08-07 18:59:04,999 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:05,000 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:05,001 | INFO | Retrieved 4 movies
+2026-08-07 18:59:11,617 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:11,617 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:11,618 | INFO | Retrieved 4 movies
+2026-08-07 18:59:11,683 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:11,683 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:11,684 | INFO | Retrieved 4 movies
+2026-08-07 18:59:14,640 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:14,641 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:14,642 | INFO | Retrieved 4 movies
+2026-08-07 18:59:14,767 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:14,768 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:14,769 | INFO | Retrieved 4 movies
+2026-08-07 18:59:14,790 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:14,791 | INFO | Updating movie 18 for user 11
+2026-08-07 18:59:14,802 | INFO | Movie 18 updated successfully
+2026-08-07 18:59:14,867 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:14,868 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:14,869 | INFO | Retrieved 4 movies
+2026-08-07 18:59:20,534 | INFO | Authenticated user test@gmail.com
+2026-08-07 18:59:20,535 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 18:59:20,536 | INFO | Retrieved 4 movies
+2026-08-07 19:01:35,961 | INFO | MyMovieList API shutting down
+2026-08-07 19:01:38,125 | INFO | MyMovieList API started successfully
+2026-08-07 19:01:41,541 | INFO | MyMovieList API shutting down
+2026-08-07 19:01:46,296 | INFO | MyMovieList API started successfully
+2026-08-07 19:01:56,011 | INFO | Login attempt: test1
+2026-08-07 19:01:56,011 | INFO | Login attempt: test1
+2026-08-07 19:01:56,396 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:01:56,407 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:01:56,496 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:01:56,497 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:01:56,499 | INFO | Retrieved 4 movies
+2026-08-07 19:02:10,791 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:02:10,792 | INFO | Creating movie 'new1' for user 11
+2026-08-07 19:02:10,803 | INFO | Movie created: new1
+2026-08-07 19:02:10,804 | INFO | Movie created successfully with id 20
+2026-08-07 19:02:12,242 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:02:12,243 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:02:12,244 | INFO | Retrieved 5 movies
+2026-08-07 19:02:17,561 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:02:17,562 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:02:17,562 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:02:19,934 | INFO | Recommendation generated successfully
+2026-08-07 19:02:43,981 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:02:43,984 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:02:43,984 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:02:45,400 | INFO | Recommendation generated successfully
+2026-08-07 19:03:35,726 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:03:35,727 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:03:35,729 | INFO | Retrieved 5 movies
+2026-08-07 19:04:30,685 | INFO | MyMovieList API shutting down
+2026-08-07 19:04:32,647 | INFO | MyMovieList API started successfully
+2026-08-07 19:04:37,562 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:04:37,563 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:04:37,567 | INFO | Retrieved 5 movies
+2026-08-07 19:04:42,643 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:04:42,644 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:04:42,644 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:04:43,908 | INFO | Recommendation generated successfully
+2026-08-07 19:04:56,799 | INFO | Login attempt: test1
+2026-08-07 19:04:56,800 | INFO | Login attempt: test1
+2026-08-07 19:04:57,191 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:04:57,191 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:04:57,240 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:04:57,241 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:04:57,242 | INFO | Retrieved 5 movies
+2026-08-07 19:05:04,074 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:05:04,075 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:05:04,075 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:05:06,623 | INFO | Recommendation generated successfully
+2026-08-07 19:08:32,545 | INFO | MyMovieList API shutting down
+2026-08-07 19:12:25,568 | INFO | MyMovieList API started successfully
+2026-08-07 19:12:45,067 | INFO | Login attempt: test1
+2026-08-07 19:12:45,067 | INFO | Login attempt: test1
+2026-08-07 19:12:45,461 | INFO | User authenticated successfully: test@gmail.com
+2026-08-07 19:12:45,470 | INFO | User logged in successfully: test@gmail.com
+2026-08-07 19:12:45,571 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:12:45,576 | INFO | Fetching movies for user 11 with search='None'
+2026-08-07 19:12:45,585 | INFO | Retrieved 5 movies
+2026-08-07 19:12:55,816 | INFO | Authenticated user test@gmail.com
+2026-08-07 19:12:55,816 | INFO | AI recommendation requested by user 11 for 'inception'
+2026-08-07 19:12:55,817 | INFO | Sending 3-movie recommendation request for 'inception'
+2026-08-07 19:12:57,301 | INFO | Recommendation generated successfully
+2026-08-07 19:14:40,823 | INFO | Registering user: tahanawaz0085@gmail.com
+2026-08-07 19:14:40,826 | WARNING | Registration failed. Email already exists: tahanawaz0085@gmail.com
+2026-08-07 19:14:40,826 | WARNING | Registration failed. Email already exists: tahanawaz0085@gmail.com
+2026-08-07 19:14:46,527 | INFO | Registering user: tahanawaz0@gmail.com
+2026-08-07 19:14:46,886 | INFO | User registered successfully: tahanawaz0@gmail.com
+2026-08-07 19:14:46,886 | INFO | User registered successfully: tahanawaz0@gmail.com

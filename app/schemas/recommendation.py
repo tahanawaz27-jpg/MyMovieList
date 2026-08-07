@@ -1,9 +1,12 @@
+# app/schemas/recommendation.py
 from pydantic import BaseModel
 
 
-class RecommendationRequest(BaseModel):
+class RecommendationItem(BaseModel):
     title: str
+    genre: str
+    reason: str
 
 
 class RecommendationResponse(BaseModel):
-    recommendation: str
+    recommendations: list[RecommendationItem]

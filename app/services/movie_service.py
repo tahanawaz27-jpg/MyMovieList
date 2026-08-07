@@ -1,3 +1,5 @@
+from typing import Optional
+from sqlalchemy import or_
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
@@ -39,13 +41,22 @@ def create_movie(
 def get_movies(
     db: Session,
     user_id: int,
+    search: Optional[str] = None,
 ):
     try:
-        return (
-            db.query(Movie)
-            .filter(Movie.owner_id == user_id)
-            .all()
-        )
+        query = db.query(Movie).filter(Movie.owner_id == user_id)
+
+        if search:
+            search_pattern = f"%{search}%"
+            query = query.filter(
+                or_(
+                    Movie.title.ilike(search_pattern),
+                    Movie.director.ilike(search_pattern),
+                    Movie.genre.ilike(search_pattern),
+                )
+            )
+
+        return query.all()
 
     except SQLAlchemyError as e:
         logger.exception(e)
@@ -91,9 +102,7 @@ def update_movie(
         if existing_movie is None:
             return None
 
-        update_data = movie.model_dump(
-            exclude_unset=True
-        )
+        update_data = movie.model_dump(exclude_unset=True)
 
         for key, value in update_data.items():
             setattr(existing_movie, key, value)

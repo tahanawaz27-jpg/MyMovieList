@@ -1,3 +1,9 @@
+import sys
+import asyncio
+
+# Fix WinError 10054 asyncio socket closure bug on Windows
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 from dotenv import load_dotenv
 
 load_dotenv()
